@@ -404,6 +404,18 @@ button.ag-c:active{transform:scale(.95)}
 .av p{font-size:13.5px;line-height:1.55;color:var(--creme);margin:8px auto 0;max-width:330px}
 .av-b{display:inline-block;margin-top:16px;padding:13px 22px;border-radius:26px;background:var(--or);color:var(--ardoise);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;font-weight:500}
 .av small{display:block;margin-top:12px;font:italic 14px var(--display);color:var(--creme-2)}
+
+/* ---------- BOUTON AVIS (en-tête) ---------- */
+.bar .rt{gap:7px}
+#themebtn{width:28px;height:28px}
+.bar .cta{letter-spacing:.16em;padding:7px 11px}
+.gav{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;letter-spacing:.06em;color:var(--creme);text-decoration:none;border:1px solid rgba(241,232,214,.28);border-radius:20px;padding:6px 9px 6px 7px;white-space:nowrap;background:rgba(241,232,214,.05)}
+.gav svg{width:13px;height:13px;color:var(--or-clair)}
+.gav:active{background:rgba(241,232,214,.14)}
+.bar .cta{white-space:nowrap}
+@media (max-width:399px){#minilogo{height:26px!important}.bar .cta{letter-spacing:.12em;padding:7px 10px}#themebtn{width:26px;height:26px}}
+@media (max-width:365px){.gav .gw{display:none}}
+@media (max-width:335px){.gav span{display:none}.gav{padding:6px 8px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
 
@@ -423,7 +435,7 @@ button.ag-c:active{transform:scale(.95)}
 
 <div class="app" id="app">
   <header class="top">
-    <div class="bar pad"><span id="minilogo" style="position:relative;display:block;height:30px;aspect-ratio:1100/392"></span><div class="rt"><button id="themebtn" type="button" aria-label="Couleur de la carte" aria-expanded="false" aria-controls="themes"><i></i></button><button class="cta" id="callsomm">Conseil vin</button><div id="themes" role="menu"><span class="eyebrow">Couleur de la carte</span><button type="button" data-t="bordeaux"><b style="background:#4A1A25"></b>Bordeaux</button><button type="button" data-t="ardoise"><b style="background:#2A3442"></b>Bleu ardoise</button><button type="button" data-t="charbon"><b style="background:#2D2A27"></b>Charbon</button><button type="button" data-t="vert"><b style="background:#264136"></b>Vert anglais</button></div></div></div>
+    <div class="bar pad"><span id="minilogo" style="position:relative;display:block;height:30px;aspect-ratio:1100/392"></span><div class="rt"><button id="themebtn" type="button" aria-label="Couleur de la carte" aria-expanded="false" aria-controls="themes"><i></i></button><a class="gav" href="https://search.google.com/local/writereview?placeid=ChIJixuZKxsv4EcR_pbQuk3dGVc" target="_blank" rel="noopener" aria-label="Laisser un avis sur Google"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.6l-5.2 2.7 1-5.8L3.5 9.4l5.9-.8z" fill="currentColor"/></svg><span>Avis</span><span class="gw">Google</span></a><button class="cta" id="callsomm">Conseil vin</button><div id="themes" role="menu"><span class="eyebrow">Couleur de la carte</span><button type="button" data-t="bordeaux"><b style="background:#4A1A25"></b>Bordeaux</button><button type="button" data-t="ardoise"><b style="background:#2A3442"></b>Bleu ardoise</button><button type="button" data-t="charbon"><b style="background:#2D2A27"></b>Charbon</button><button type="button" data-t="vert"><b style="background:#264136"></b>Vert anglais</button></div></div></div>
     <nav class="cats pad" id="cats"></nav>
   </header>
   <div id="adminbar" class="pad"><b>Espace gérant</b> · Touchez un interrupteur pour retirer un plat. Il disparaît aussitôt de la carte des clients.</div>
@@ -665,7 +677,7 @@ function render(){
   const ta=document.getElementById("ard");if(ta)ta.addEventListener("input",e=>{ARD=e.target.value;save()});
   spy();dgInit();
 }
-document.getElementById("cats").innerHTML=MENU.map((s,k)=>`<a href="#${s.id}" class="${k?"":"on"}" data-c="${s.id}">${s.t}</a>`).join("");
+document.getElementById("cats").innerHTML=MENU.filter(s=>!s.avis).map((s,k)=>`<a href="#${s.id}" class="${k?"":"on"}" data-c="${s.id}">${s.t}</a>`).join("");
 document.getElementById("cats").addEventListener("click",e=>{const a=e.target.closest("a");if(!a)return;e.preventDefault();document.getElementById(a.dataset.c).scrollIntoView({behavior:"smooth"})});
 let io;function spy(){io&&io.disconnect();io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){document.querySelectorAll("#cats a").forEach(a=>a.classList.toggle("on",a.dataset.c===en.target.id));const on=document.querySelector("#cats a.on");on&&on.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"})}}),{rootMargin:"-45% 0px -50% 0px"});document.querySelectorAll("section.s").forEach(s=>io.observe(s))}
 // logo composites (layers stacked)
