@@ -191,6 +191,85 @@ html[data-theme="vert"]{--ardoise:#12221B;--ardoise-2:#1A2E25;--ardoise-3:#26413
 #ph .ds{font-size:13px;line-height:1.5;color:var(--creme-2);margin-top:6px}
 #ph .pr{font:600 24px var(--display);color:var(--or-clair);margin-top:10px}
 #ph .x{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:14px;width:40px;height:40px;border-radius:50%;background:rgba(var(--deep),.6);border:1px solid rgba(188,152,79,.35);color:var(--creme);font-size:22px;line-height:38px}
+
+/* ---------- CONSEIL VIN ---------- */
+.pf{margin-top:18px;border-radius:18px;background:linear-gradient(165deg,rgba(122,21,38,.32),var(--ardoise-2) 62%);border:1px solid rgba(188,152,79,.28);padding:18px 16px 16px}
+.pf-q{font:500 24px/1.15 var(--display);color:var(--creme)}
+.pf-s{font-size:12.5px;color:var(--creme-2);margin-top:4px;line-height:1.45}
+.pf-tabs{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;margin:14px -16px 0;padding:0 16px 2px}
+.pf-tabs::-webkit-scrollbar{display:none}
+.pf-tabs button{flex:none;font-size:12.5px;padding:8px 13px;border-radius:20px;border:1px solid rgba(188,152,79,.4);color:var(--creme)}
+.pf-tabs button[aria-selected="true"]{background:var(--or-clair);color:var(--ardoise);border-color:var(--or-clair)}
+.pf-card{margin-top:16px;animation:pfin .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes pfin{from{opacity:0;transform:translateY(8px)}}
+.pf-match{display:grid;grid-template-columns:1fr 30px 1fr;align-items:stretch}
+.pf-side{background:rgba(var(--deep),.45);border-radius:14px;padding:12px 11px;min-width:0}
+.pf-side .eyebrow{font-size:9px;letter-spacing:.26em}
+.pf-n{font:600 18px/1.15 var(--display);margin-top:6px;color:var(--creme)}
+.pf-t{font-size:11.5px;line-height:1.4;color:var(--creme-2);margin-top:5px}
+.pf-plus{display:grid;place-items:center}.pf-plus i{width:24px;height:24px;border-radius:50%;background:var(--or);color:var(--ardoise);font:600 16px/24px var(--util);text-align:center;font-style:normal}
+.pf-why{margin-top:16px}
+.pf-why ol{list-style:none;margin:8px 0 0;padding:0;counter-reset:w}
+.pf-why li{position:relative;padding:0 0 12px 36px;font-size:13.5px;line-height:1.45;color:var(--creme)}
+.pf-why li::before{counter-increment:w;content:counter(w);position:absolute;left:0;top:0;width:24px;height:24px;border-radius:50%;border:1px solid rgba(188,152,79,.55);color:var(--or-clair);font:600 12px/22px var(--util);text-align:center}
+.pf-why li:not(:last-child)::after{content:"";position:absolute;left:12px;top:27px;bottom:3px;width:1px;background:rgba(188,152,79,.3)}
+.pf-why li b{display:block;font:500 9.5px var(--util);letter-spacing:.24em;text-transform:uppercase;color:var(--or);margin-bottom:2px}
+.pf-why li.res{color:var(--or-clair);font:italic 17px/1.35 var(--display);padding-bottom:0}
+.pf-why li.res::before{content:"=";background:var(--or);color:var(--ardoise);border-color:var(--or);font-size:15px}
+.pf-prof{margin-top:16px;padding-top:14px;border-top:1px solid rgba(241,232,214,.1)}
+.gz{display:grid;grid-template-columns:76px 1fr;align-items:start;column-gap:10px;margin-top:10px}
+.gz .gn{font-size:12.5px;line-height:1;color:var(--creme);padding-top:1px}
+.gz .gbar{display:flex;gap:5px;padding-top:3px}.gz .gbar i{flex:1;height:7px;border-radius:4px;background:rgba(241,232,214,.12)}
+.gz .gbar i.on{background:linear-gradient(90deg,var(--vin-2),var(--or))}
+.gz .ends{display:flex;justify-content:space-between;font-size:10px;line-height:1;color:var(--creme-2);margin-top:5px;letter-spacing:.04em}
+.pf-alt{margin-top:14px;display:grid;gap:8px}
+.pf-alt div{display:flex;justify-content:space-between;gap:10px;align-items:baseline;padding:10px 12px;border-radius:12px;background:rgba(var(--deep),.35)}
+.pf-alt .eyebrow{font-size:9px;letter-spacing:.2em;display:block;margin-bottom:3px}
+.pf-alt b{font:600 16px/1.2 var(--display);color:var(--creme)}.pf-alt em{font-style:normal;font-size:12.5px;color:var(--or-clair);white-space:nowrap}
+.lex{margin-top:14px;display:grid;gap:6px}
+.lex div{font-size:12px;line-height:1.45;color:var(--creme-2)}.lex b{color:var(--or-clair);font-weight:500}
+.lex .eyebrow{font-size:9.5px}
+
+/* ---------- DEGUSTATION ---------- */
+.dg-i{font:italic 17px/1.4 var(--display);color:var(--creme);margin-top:14px}
+.dg-car{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:16px -18px 0;padding:0 18px 4px}
+.dg-car::-webkit-scrollbar{display:none}
+.dg-st{flex:none;width:84%;scroll-snap-align:center;border-radius:18px;background:var(--ardoise-2);border:1px solid rgba(188,152,79,.22);overflow:hidden}
+.dg-art{height:170px;display:grid;place-items:center;background:radial-gradient(90% 90% at 50% 40%,rgba(188,152,79,.12),transparent 70%),rgba(var(--deep),.35);color:var(--or)}
+.dg-art svg{height:150px;width:auto;overflow:visible}
+.dg-tx{padding:14px 16px 16px}
+.dg-n{font:500 10px var(--util);letter-spacing:.3em;text-transform:uppercase;color:var(--or)}
+.dg-tx h3{font:500 24px/1.12 var(--display);margin:6px 0 0;color:var(--creme)}
+.dg-how{font-size:13px;line-height:1.5;color:var(--creme);margin-top:8px}
+.dg-look{margin-top:10px;padding-top:10px;border-top:1px solid rgba(241,232,214,.1);font-size:12.5px;line-height:1.5;color:var(--creme-2)}
+.dg-look b{display:block;font:500 9.5px var(--util);letter-spacing:.22em;text-transform:uppercase;color:var(--or-clair);margin-bottom:3px}
+.dg-dots{display:flex;justify-content:center;gap:7px;margin-top:12px}
+.dg-dots i{width:7px;height:7px;border-radius:50%;background:rgba(241,232,214,.2);transition:.3s}.dg-dots i.on{width:20px;border-radius:4px;background:var(--or)}
+.chrono{margin-top:12px;width:100%;padding:12px;border-radius:12px;border:1px solid rgba(188,152,79,.55);color:var(--or-clair);font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+.chrono.run{background:var(--or);color:var(--ardoise)}
+.cdl{text-align:center;margin-top:10px;min-height:20px;font:italic 16px/1.35 var(--display);color:var(--creme)}
+.cdl b{display:block;font:600 44px/1 var(--display);font-style:normal;color:var(--or-clair)}
+.wheel{margin-top:26px;border-radius:18px;background:var(--ardoise-2);border:1px solid rgba(188,152,79,.22);padding:18px 16px}
+.wheel h3{font:500 24px/1.1 var(--display);margin:6px 0 0}
+.wheel svg{display:block;width:min(100%,280px);margin:14px auto 0}
+.wheel path{cursor:pointer;transition:opacity .25s,transform .25s;transform-origin:100px 100px;stroke:var(--ardoise-2);stroke-width:2}
+.wheel svg.sel path:not(.on){opacity:.35}
+.wheel path.on{transform:scale(1.04)}
+.wheel text{font:500 7.6px var(--util);letter-spacing:.06em;text-transform:uppercase;fill:#F7EFE0;pointer-events:none}
+.wh-out{text-align:center;margin-top:12px;min-height:84px}
+.wh-out h4{font:500 22px var(--display);margin:0;color:var(--or-clair)}
+.wh-out p{font-size:13px;line-height:1.5;color:var(--creme);margin:5px 0 0}
+.wh-out small{display:block;font-size:11.5px;color:var(--creme-2);margin-top:5px;line-height:1.45}
+.game{margin-top:14px;padding:12px 14px;border-radius:12px;background:rgba(122,21,38,.25);border-left:2px solid var(--vin-2);font:italic 15px/1.45 var(--display);color:var(--creme)}
+.game span{display:block;font:500 9.5px var(--util);font-style:normal;letter-spacing:.22em;text-transform:uppercase;color:var(--or-clair);margin-bottom:4px}
+@keyframes swirl{0%{transform:translateX(-5px)}50%{transform:translateX(5px)}100%{transform:translateX(-5px)}}
+@keyframes rot{to{transform:rotate(360deg)}}
+@keyframes wisp{0%{stroke-dashoffset:60;opacity:0}30%{opacity:.9}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes sip{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.sw-w{animation:swirl 1.6s ease-in-out infinite}
+.sw-r{transform-origin:60px 60px;animation:rot 2.4s linear infinite}
+.wsp{stroke-dasharray:60;animation:wisp 2.8s ease-out infinite}
+.wsp.d2{animation-delay:.9s}.wsp.d3{animation-delay:1.8s}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}}
 </style>
 
@@ -302,7 +381,8 @@ const MENU=[
   ["Cocktails",[{n:"Spritz",p:"8,90"},{n:"Mojito",p:"8,90"},{n:"Planteur",p:"8,90"},{n:"Margarita",p:"8,90"},{n:"Blue Lagoon",p:"8,90"},{n:"Piña Colada",p:"8,90"}]],
   ["Apéritifs",[{n:"Coupe de champagne",p:"8,90"},{n:"Gin tonic",d:"Gin d'Azur",p:"9,90"},{n:"Whisky coca",p:"7,90"},{n:"Martini gin",p:"5,90"},{n:"Martini rouge",p:"4,90"},{n:"Martini blanc",p:"4,90"},{n:"Campari",p:"4,50"},{n:"Anisette",p:"4,50"}]],
   ["Bières",[{n:"Bud",d:"25 cl",p:"3,90"},{n:"Bud",d:"50 cl",p:"7,50"},{n:"Leffe",d:"33 cl",p:"4,50"}]]]},
- {id:"cave",t:"La cave",note:"Bouteille, sauf mention",cave:true,items:[]}
+ {id:"cave",t:"La cave",note:"Bouteille, sauf mention",cave:true,items:[]},
+ {id:"degustation",t:"Déguster",h:"L'art de déguster",note:"Le rituel du sommelier",deg:true,items:[]}
 ];
 let uid=0;MENU.forEach(s=>{s.items.forEach(i=>i.id=i.id||"i"+uid++);(s.sub||[]).forEach(([,l])=>l.forEach(i=>i.id="i"+uid++))});
 const ALL={};MENU.forEach(s=>{s.items.forEach(i=>ALL[i.id]=i);(s.sub||[]).forEach(([,l])=>l.forEach(i=>ALL[i.id]=i))});
@@ -314,18 +394,59 @@ const sw=i=>`<span class="sw" role="switch" tabindex="0" data-sw="${i.id}" aria-
 const PH={"Carpaccio de bœuf": "carpaccio", "Foie gras maison": "foie", "Velouté de lentilles corail": "veloute", "La Pata Negra": "patanegra", "Assiette de charcuterie": "charcuterie", "Planche à partager": "planche", "Double carpaccio de bœuf Angus": "dcarpaccio", "Burger Beef & Wine": "burger", "Tartare César irlandais": "tartare", "Faux filet race normande": "fauxfilet", "Thon tataki": "tataki", "Steak haché XXL": "steakhache", "Burger sucré Beef & Wine": "burgersucre", "Tarte Tatin": "tatin", "Mousse au chocolat": "mousse", "Salade de fruits de saison": "fruits", "Assortiment de fromages": "fromages", "Glace deux boules": "glace", "La Dame blanche": "dameblanche", "La Coupe Mambo": "mambo", "Spritz": "spritz", "Mojito": "mojito", "Planteur": "planteur", "Margarita": "margarita", "Blue Lagoon": "bluelagoon", "Piña Colada": "pinacolada", "Coupe de champagne": "champagne", "Whisky coca": "whiskycoca", "Martini gin": "martinigin", "Campari": "campari"};
 const row=i=>`<div class="row ${i.off?"off":""}" data-id="${i.id}"><div class="tx"><div class="nm">${esc(i.n)}${PH[i.n]?`<button type="button" class="inf" data-ph="${PH[i.n]}" data-pid="${i.id}" aria-label="Voir la photo : ${esc(i.n)}">i</button>`:""}${i.b?`<span class="badge">${i.b}</span>`:""}</div>${i.d?`<div class="ds">${esc(i.d)}</div>`:""}${i.w?`<div class="wn"><span>Accord</span> ${esc(i.w)}</div>`:""}${i.wn?`<div class="sn">${esc(i.wn)}</div>`:""}</div><div class="pr">${i.p} €</div>${sw(i)}</div>`;
 const cut=i=>`<div class="cut ${i.off?"off":""}" data-id="${i.id}" role="button" tabindex="0" data-open="${i.id}"><img src="${A[i.img]}" alt="${esc(i.n)}" loading="lazy"><div class="in"><div><div class="nm">${esc(i.n)}</div><div class="or">${esc(i.o)}</div></div><div class="pr">${i.p} €</div></div>${sw(i)}</div>`;
+
+const PAIR={
+ arg:{m:"Persillée : de fines veines de gras qui fondent à la cuisson.",v:"Un merlot de Saint-Émilion, rond, aux arômes de fruits noirs, avec des tanins souples.",r:"Les tanins accrochent le gras, le fruit prolonge le goût du grillé. Rien ne domine.",g:[3,3,3]},
+ angus:{m:"Très persillée, au goût de bœuf intense et généreux.",v:"Un rouge du Languedoc, ensoleillé et épicé, qui a du corps.",r:"Deux caractères forts qui se répondent : le vin tient tête à la viande sans l'écraser.",g:[4,3,2]},
+ cote:{m:"Une croûte bien grillée et un gras fondant autour de l'os.",v:"Un Saint-Julien du Médoc, structuré, aux notes de cassis et de bois.",r:"Le gras arrondit les tanins fermes, et la croûte grillée répond aux notes boisées.",g:[5,5,3]},
+ wagyu:{m:"Le gras est partout : la texture est fondante, presque beurrée.",v:"Un pinot noir de Bourgogne, soyeux et frais, aux arômes de fruits rouges.",r:"La fraîcheur du vin nettoie le palais : chaque bouchée a le goût de la première.",g:[2,2,5]},
+ filet:{m:"La pièce la plus tendre, maigre et douce.",v:"Un rouge du Rhône, fruité et velouté.",r:"Un vin tout en douceur, qui respecte la tendreté du filet sans la couvrir.",g:[3,2,3]}};
+const GZ=[["Corps","Léger","Puissant"],["Tanins","Souples","Fermes"],["Fraîcheur","Ronde","Vive"]];
+const gauge=g=>GZ.map(([n,a,b],k)=>`<div class="gz"><span class="gn">${n}</span><div class="gb"><div class="gbar">${[1,2,3,4,5].map(x=>`<i class="${x<=g[k]?"on":""}"></i>`).join("")}</div><div class="ends"><span>${a}</span><span>${b}</span></div></div></div>`).join("");
+function pairCore(i){const a=i.acc,p=PAIR[i.id];return `<div class="pf-why"><span class="eyebrow">Pourquoi ça marche</span><ol><li><b>La viande</b>${esc(p.m)}</li><li><b>Le vin</b>${esc(p.v)}</li><li class="res"><b>Ensemble</b>${esc(p.r)}</li></ol></div>
+ <div class="pf-prof"><span class="eyebrow">Le profil du vin</span>${gauge(p.g)}</div>
+ <div class="pf-alt">${a.slice(1).map((w,k)=>`<div><span><span class="eyebrow">${TIERS[k+1]}</span><b>${esc(w[0])}</b></span><em>${esc(w[2])}</em></div>`).join("")}</div>`}
+function pairCard(i){const a=i.acc[0];return `<div class="pf-match"><div class="pf-side"><span class="eyebrow">La viande</span><div class="pf-n">${esc(i.n)}</div><div class="pf-t">${esc(i.o)}</div></div><div class="pf-plus"><i>+</i></div><div class="pf-side"><span class="eyebrow">Le vin</span><div class="pf-n">${esc(a[0])}</div><div class="pf-t">${esc(a[1])} · ${esc(a[2])}</div></div></div>${pairCore(i)}`}
+let pfSel=null;
+function pfHTML(){const cuts=MENU[0].items.filter(i=>i.acc&&!i.off&&PAIR[i.id]);if(!cuts.length)return"";if(!cuts.some(c=>c.id===pfSel))pfSel=cuts[0].id;const cur=ALL[pfSel];
+ return `<div class="pf" id="pf"><div class="pf-q">Quel vin avec votre viande ?</div><div class="pf-s">Choisissez votre pièce : on vous dit quel vin la sublime, et pourquoi.</div>
+ <div class="pf-tabs" role="tablist">${cuts.map(c=>`<button type="button" role="tab" data-pf="${c.id}" aria-selected="${c.id===pfSel}">${esc(c.n.replace("Noix d'entrecôte ","Entrecôte ").replace(" de Galice",""))}</button>`).join("")}</div>
+ <div class="pf-card" id="pf-card">${pairCard(cur)}</div>
+ <div class="lex"><span class="eyebrow">Le petit lexique</span><div><b>Tanins :</b> la sensation qui assèche un peu la bouche, comme un thé longuement infusé. Ils « accrochent » le gras de la viande.</div><div><b>Corps :</b> le poids du vin en bouche, de léger comme l'eau à ample comme le lait entier.</div><div><b>Fraîcheur :</b> l'acidité qui fait saliver. Elle allège les plats riches.</div></div></div>`}
+const DG=[
+ ["oeil","L'œil","Regardez la robe","Inclinez le verre au-dessus de la nappe blanche.","La couleur : rubis pour un vin jeune, grenat puis tuilé en vieillissant. Les « larmes » sur la paroi : plus elles sont épaisses, plus le vin est riche en alcool."],
+ ["nez1","Le premier nez","Sentez sans remuer","Approchez le nez du verre immobile, deux ou trois secondes.","Les arômes les plus légers, ceux qui s'échappent seuls : souvent des fruits ou des fleurs."],
+ ["nez2","Le second nez","Faites tourner, puis sentez","Posez le pied du verre sur la table, faites tourner le vin quelques secondes, puis plongez le nez.","L'air réveille le vin. De nouveaux arômes apparaissent : épices, bois, cuir, sous-bois. Comparez avec le premier nez."],
+ ["bouche","La bouche","Goûtez en deux temps","Prenez une petite gorgée, gardez-la quelques secondes et aspirez un filet d'air entre les lèvres.","D'abord la douceur ou la vivacité, puis la texture : le vin est-il léger ou ample ? Les tanins assèchent-ils la bouche ?"],
+ ["finale","La finale","Comptez les secondes","Après avoir avalé, comptez combien de temps le goût reste en bouche.","Chaque seconde s'appelle une caudalie. Moins de 3 : finale courte. De 5 à 8 : belle longueur. Au-delà : un grand vin."]];
+const ART={"oeil": "<svg viewBox=\"-10 0 160 150\" aria-hidden=\"true\"><rect x=\"-10\" y=\"118\" width=\"160\" height=\"22\" rx=\"3\" fill=\"#F1E8D6\" opacity=\".9\"/>\n  <defs><clipPath id=\"dgbowl\"><path transform=\"rotate(-28 60 80)\" d=\"M38 16 C35 48 40 76 60 84 C80 76 85 48 82 16 Z\"/></clipPath></defs><rect x=\"0\" y=\"58\" width=\"140\" height=\"70\" fill=\"var(--vin-2)\" clip-path=\"url(#dgbowl)\"/><g transform=\"rotate(-28 60 80)\"><path d=\"M38 16 C35 48 40 76 60 84 C80 76 85 48 82 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\"/><path d=\"M60 84 V126 M42 130 Q60 123 78 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\"/></g>\n  <g transform=\"translate(112 22)\" stroke=\"currentColor\" stroke-width=\"2\" fill=\"none\"><path d=\"M0 12 Q14 0 28 12 Q14 24 0 12Z\"/><circle cx=\"14\" cy=\"12\" r=\"4.5\" fill=\"currentColor\"/></g>\n  <path d=\"M104 44 L86 62\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-dasharray=\"3 4\"/></svg>", "nez1": "<svg viewBox=\"0 0 120 150\" aria-hidden=\"true\"><path d=\"M37.6 50 C38.5 68 45 80 60 84 C75 80 81.5 68 82.4 50 Z\" fill=\"var(--vin-2)\"/><ellipse cx=\"60\" cy=\"50\" rx=\"22.4\" ry=\"3.2\" fill=\"#C4344B\"/><path d=\"M38 16 C35 48 40 76 60 84 C80 76 85 48 82 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\"/><path d=\"M60 84 V126 M42 130 Q60 123 78 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\"/>\n  <path class=\"wsp\" d=\"M54 46 C50 34 58 26 54 12\" stroke=\"#DCC48F\" stroke-width=\"1.6\" fill=\"none\" stroke-linecap=\"round\"/>\n  <path class=\"wsp d2\" d=\"M64 46 C68 34 60 26 66 10\" stroke=\"#DCC48F\" stroke-width=\"1.6\" fill=\"none\" stroke-linecap=\"round\"/></svg>", "nez2": "<svg viewBox=\"0 0 120 150\" aria-hidden=\"true\"><g class=\"sw-w\"><path d=\"M37.6 50 C38.5 68 45 80 60 84 C75 80 81.5 68 82.4 50 Z\" fill=\"var(--vin-2)\"/><ellipse cx=\"60\" cy=\"50\" rx=\"22.4\" ry=\"3.2\" fill=\"#C4344B\"/></g><path d=\"M38 16 C35 48 40 76 60 84 C80 76 85 48 82 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\"/><path d=\"M60 84 V126 M42 130 Q60 123 78 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\"/>\n  <g class=\"sw-r\"><path d=\"M28 60 A34 34 0 0 1 92 52\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-dasharray=\"2 5\" transform=\"translate(0 -4)\"/></g>\n  <path class=\"wsp\" d=\"M50 46 C44 32 56 24 48 6\" stroke=\"#DCC48F\" stroke-width=\"1.8\" fill=\"none\" stroke-linecap=\"round\"/>\n  <path class=\"wsp d2\" d=\"M60 46 C64 30 54 22 60 4\" stroke=\"#DCC48F\" stroke-width=\"1.8\" fill=\"none\" stroke-linecap=\"round\"/>\n  <path class=\"wsp d3\" d=\"M70 46 C76 32 64 24 72 6\" stroke=\"#DCC48F\" stroke-width=\"1.8\" fill=\"none\" stroke-linecap=\"round\"/></svg>", "bouche": "<svg viewBox=\"0 0 150 150\" aria-hidden=\"true\"><g transform=\"translate(-6 0)\"><path d=\"M37.6 50 C38.5 68 45 80 60 84 C75 80 81.5 68 82.4 50 Z\" fill=\"var(--vin-2)\"/><ellipse cx=\"60\" cy=\"50\" rx=\"22.4\" ry=\"3.2\" fill=\"#C4344B\"/><path d=\"M38 16 C35 48 40 76 60 84 C80 76 85 48 82 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\"/><path d=\"M60 84 V126 M42 130 Q60 123 78 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\"/></g>\n  <g transform=\"translate(104 58)\" style=\"animation:sip 2.2s ease-in-out infinite\"><path d=\"M-22 6 Q0 -10 22 6 Q0 22 -22 6Z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M-22 6 Q0 10 22 6\" stroke=\"currentColor\" stroke-width=\"1.6\" fill=\"none\"/></g>\n  <path class=\"wsp\" d=\"M84 62 C90 58 94 66 100 62\" stroke=\"#DCC48F\" stroke-width=\"1.6\" fill=\"none\"/>\n  <path class=\"wsp d2\" d=\"M84 70 C90 66 94 74 100 70\" stroke=\"#DCC48F\" stroke-width=\"1.6\" fill=\"none\"/></svg>", "finale": "<svg viewBox=\"0 0 120 150\" aria-hidden=\"true\"><circle cx=\"60\" cy=\"78\" r=\"44\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\"/><path d=\"M52 26 H68 M60 26 V34\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\"/>\n  <g class=\"sw-r\" style=\"transform-origin:60px 78px\"><path d=\"M60 78 V44\" stroke=\"#C4344B\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><circle cx=\"60\" cy=\"78\" r=\"4\" fill=\"currentColor\"/>\n  <text x=\"60\" y=\"108\" text-anchor=\"middle\" font-family=\"Jost,sans-serif\" font-size=\"9\" letter-spacing=\"2\" fill=\"#DCC48F\">CAUDALIES</text></svg>"};
+const AR=[["Fruits rouges","#B23A48","Fraise, framboise, cerise, groseille.","À chercher dans le Vosne-Romanée ou les rosés de Provence."],
+ ["Fruits noirs","#5E1A30","Cassis, mûre, myrtille, prune.","Typique des Saint-Julien et Saint-Émilion de la carte."],
+ ["Épices","#9A4A26","Poivre, réglisse, clou de girofle.","Dans les rouges du Rhône et du Languedoc : Châteauneuf-du-Pape, Pic Saint-Loup."],
+ ["Boisé","#8A6A3A","Vanille, pain grillé, cèdre, café.","La marque d'un élevage en fût de chêne, comme dans les grands Bordeaux."],
+ ["Fleurs","#8E6496","Violette, rose, pivoine.","Souvent dans les rouges jeunes du Rhône et de Bourgogne."],
+ ["Sous-bois","#5A4636","Champignon, tabac, cuir, truffe.","Ils arrivent avec l'âge : cherchez-les dans la collection."]];
+function wheelSVG(){const c=100,R=94,r=40,P=a=>[c+Math.cos(a)*R,c+Math.sin(a)*R],Q=a=>[c+Math.cos(a)*r,c+Math.sin(a)*r];
+ return `<svg viewBox="0 0 200 200" role="group" aria-label="Roue des arômes">${AR.map(([n,col],k)=>{const a0=(-90+60*k)*Math.PI/180,a1=a0+Math.PI/3,[x0,y0]=P(a0),[x1,y1]=P(a1),[u1,v1]=Q(a1),[u0,v0]=Q(a0),m=(a0+a1)/2,tx=c+Math.cos(m)*67,ty=c+Math.sin(m)*67;
+  const w=n.split(" ");return `<path data-ar="${k}" role="button" tabindex="0" aria-label="${n}" fill="${col}" d="M${x0} ${y0} A${R} ${R} 0 0 1 ${x1} ${y1} L${u1} ${v1} A${r} ${r} 0 0 0 ${u0} ${v0}Z"/><text x="${tx}" y="${ty-(w.length-1)*4.5+2.5}" text-anchor="middle">${w.map((x,j)=>`<tspan x="${tx}" dy="${j?9:0}">${x}</tspan>`).join("")}</text>`}).join("")}
+ <circle cx="100" cy="100" r="36" fill="var(--ardoise)"/><text x="100" y="98" text-anchor="middle" style="font:italic 500 12px var(--display);fill:var(--or-clair);text-transform:none;letter-spacing:0">Touchez</text><text x="100" y="111" text-anchor="middle" style="font:italic 500 12px var(--display);fill:var(--or-clair);text-transform:none;letter-spacing:0">une famille</text></svg>`}
+function degHTML(){return `<div class="dg-i">Cinq gestes, deux minutes. Pas besoin d'être sommelier : faites-le à table, entre amis.</div>
+ <div class="dg-car" id="dg-car">${DG.map(([k,n,t,how,look],j)=>`<article class="dg-st"><div class="dg-art">${ART[k]}</div><div class="dg-tx"><div class="dg-n">Étape ${j+1} sur 5 · ${n}</div><h3>${t}</h3><div class="dg-how">${how}</div><div class="dg-look"><b>Ce que vous cherchez</b>${look}</div>${k==="finale"?`<button type="button" class="chrono" id="chrono">Lancer le chrono</button><div class="cdl" id="cdl"></div>`:""}</div></article>`).join("")}</div>
+ <div class="dg-dots" id="dg-dots">${DG.map((_,j)=>`<i class="${j?"":"on"}"></i>`).join("")}</div>
+ <div class="wheel"><span class="eyebrow">Le jeu des arômes</span><h3>Qu'est-ce que vous sentez ?</h3>${wheelSVG()}<div class="wh-out" id="wh-out"><p>Six familles pour mettre des mots sur ce que vous sentez.</p></div>
+ <div class="game"><span>Entre amis</span>Chacun annonce un arôme à son tour, sans répéter les autres. Le dernier à trouver choisit la prochaine bouteille.</div></div>`}
 function caveHTML(){
-  const cuts=MENU[0].items.filter(i=>i.acc&&!i.off);
-  let h=`<div class="acc-grid">`+cuts.map(i=>`<button class="acc-card" data-open="${i.id}"><span class="eyebrow">${esc(i.n)}</span><span class="acc-w">${esc(i.acc[0][0])}</span><span class="acc-a">${esc(i.acc[0][1])}</span><span class="acc-n">${esc(i.acc[0][3].split(". ")[0].replace(/\.$/,""))}.</span><span class="acc-more">Voir les trois accords</span></button>`).join("")+`</div>`;
+  let h=pfHTML();
   WINES.forEach(([cat,regs])=>{h+=`<div class="wcat">${cat}</div>`;if(cat.startsWith("La collection"))h+=`<div class="note-s"><span>La note du sommelier</span>Des millésimes rares, gardés pour les grandes occasions. Demandez conseil avant de choisir : certains de ces vins gagnent à être carafés.</div>`;regs.forEach(([reg,ws])=>{h+=`<div class="sub">${reg}</div><div class="rows">`+ws.map(w=>`<div class="row wine"><div class="tx"><div class="nm">${esc(w[0])}</div><div class="ds">${esc(w[1])}${w[3]?` · <em>${esc(w[3])}</em>`:""}</div></div><div class="pr">${w[2]} €</div></div>`).join("")+`</div>`})});
   return h}
 function render(){
   const adm=document.body.classList.contains("admin");
   let h=`<div class="ardoise" style="margin-top:4px"><div class="eyebrow"><span>L'ardoise du jour</span></div>${adm?`<textarea id="ard" aria-label="Texte de l'ardoise">${esc(ARD)}</textarea>`:`<p>${esc(ARD)}</p>`}</div>`;
   MENU.forEach(s=>{
-    h+=`<section class="s" id="${s.id}"><div class="sh"><h2>${s.t}</h2>${s.note?`<div class="note">${s.note}</div>`:""}</div><div class="rule"></div>`;
+    h+=`<section class="s" id="${s.id}"><div class="sh"><h2>${s.h||s.t}</h2>${s.note?`<div class="note">${s.note}</div>`:""}</div><div class="rule"></div>`;
     if(s.band)h+=`<div class="band"><img src="${A[s.band[0]]}" alt="" loading="lazy"><span>${s.band[1]}</span></div>`;
     if(s.cave){h+=caveHTML()}
+    else if(s.deg){h+=degHTML()}
     else if(s.cuts){h+=`<div class="cuts">${s.items.map(cut).join("")}</div><div class="sub">Garniture au choix</div><div class="ds" style="font-size:13px;color:var(--creme-2);line-height:1.5">${G.join(" · ")}</div><div class="sub">Sauce au choix</div><div class="ds" style="font-size:13px;color:var(--creme-2);line-height:1.5">${S.join(" · ")}</div>`}
     else h+=`<div class="rows">${s.items.map(row).join("")}</div>`;
     (s.sub||[]).forEach(([t,l])=>h+=`<div class="sub">${t}</div><div class="rows">${l.map(row).join("")}</div>`);
@@ -348,10 +469,10 @@ document.getElementById("main").addEventListener("click",e=>{const s=e.target.cl
 document.getElementById("main").addEventListener("keydown",e=>{if(e.key!=="Enter"&&e.key!==" ")return;const s=e.target.closest("[data-sw]");if(s){e.preventDefault();toggle(s.dataset.sw);return}const o=e.target.closest("[data-open]");if(o){e.preventDefault();openSheet(o.dataset.open)}});
 const sh=document.getElementById("sheet");
 function openSheet(id){const i=ALL[id];document.getElementById("sh-img").src=`${A[i.img]}`;document.getElementById("sh-img").alt=i.n;document.getElementById("sh-t").textContent=i.n;document.getElementById("sh-o").textContent=i.o;document.getElementById("sh-p").textContent=i.p+" €";
- document.getElementById("sh-g").innerHTML=G.map(x=>`<span>${x}</span>`).join("");document.getElementById("sh-s").innerHTML=S.map(x=>`<span>${x}</span>`).join("");const a=i.acc||[];document.getElementById("sh-a").innerHTML=a.length?`<div class="sub">${TIERS[0]}</div><div class="acc-main"><div class="acc-w">${esc(a[0][0])}</div><div class="acc-a">${esc(a[0][1])} · ${a[0][2]}</div><div class="note-s"><span>La note du sommelier</span>${esc(a[0][3])}</div></div>`+a.slice(1).map((w,k)=>`<div class="acc-alt"><span class="eyebrow">${TIERS[k+1]}</span><div class="acc-w sm">${esc(w[0])}</div><div class="acc-a">${esc(w[1])} · ${w[2]}</div></div>`).join(""):"";sh.classList.add("open");sh.setAttribute("aria-hidden","false");document.getElementById("sh-x").focus()}
+ document.getElementById("sh-g").innerHTML=G.map(x=>`<span>${x}</span>`).join("");document.getElementById("sh-s").innerHTML=S.map(x=>`<span>${x}</span>`).join("");const a=i.acc||[];document.getElementById("sh-a").innerHTML=(a.length&&PAIR[i.id])?`<div class="sub">${TIERS[0]}</div><div class="acc-main"><div class="acc-w">${esc(a[0][0])}</div><div class="acc-a">${esc(a[0][1])} · ${a[0][2]}</div></div>${pairCore(i)}`:a.length?`<div class="sub">${TIERS[0]}</div><div class="acc-main"><div class="acc-w">${esc(a[0][0])}</div><div class="acc-a">${esc(a[0][1])} · ${a[0][2]}</div><div class="note-s"><span>La note du sommelier</span>${esc(a[0][3])}</div></div>`+a.slice(1).map((w,k)=>`<div class="acc-alt"><span class="eyebrow">${TIERS[k+1]}</span><div class="acc-w sm">${esc(w[0])}</div><div class="acc-a">${esc(w[1])} · ${w[2]}</div></div>`).join(""):"";sh.classList.add("open");sh.setAttribute("aria-hidden","false");document.getElementById("sh-x").focus()}
 function closeSheet(){sh.classList.remove("open");sh.setAttribute("aria-hidden","true")}
 document.getElementById("sh-x").onclick=closeSheet;sh.addEventListener("click",e=>{if(e.target===sh)closeSheet()});document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSheet()});
-document.getElementById("callsomm").onclick=()=>document.getElementById("cave").scrollIntoView({behavior:"smooth"});
+document.getElementById("callsomm").onclick=()=>{const t=document.getElementById("pf")||document.getElementById("cave");const y=t.getBoundingClientRect().top+scrollY-120;scrollTo({top:y,behavior:"smooth"})};
 document.getElementById("gerant").onclick=()=>{const on=document.body.classList.toggle("admin");document.getElementById("gerant").textContent=on?"Quitter l'espace gérant":"Espace gérant · démo";render();window.scrollTo({top:0,behavior:"smooth"});toast(on?"Espace gérant ouvert. Dans la version finale, il est protégé par un code.":"Vue client.")};
 // intro
 const intro=document.getElementById("intro");let ended=false;
@@ -375,6 +496,18 @@ playIntro=function(){document.documentElement.classList.remove("seen");try{iv.cu
 let seen=false;try{seen=sessionStorage.getItem("bw-intro")==="1"}catch(e){}
 if(seen){intro.classList.add("done");ended=true;iv.pause()}else videoIntro();
 render();
+
+// conseil vin + degustation interactions
+let chr=null,chrT=0;
+document.getElementById("main").addEventListener("click",e=>{
+ const t=e.target.closest("[data-pf]");if(t){pfSel=t.dataset.pf;document.querySelectorAll("[data-pf]").forEach(b=>b.setAttribute("aria-selected",b.dataset.pf===pfSel));document.getElementById("pf-card").outerHTML=`<div class="pf-card" id="pf-card">${pairCard(ALL[pfSel])}</div>`;return}
+ const w=e.target.closest("[data-ar]");if(w){const k=+w.dataset.ar,[n,,ex,where]=AR[k];const svg=w.closest("svg");svg.classList.add("sel");svg.querySelectorAll("path").forEach(p=>p.classList.toggle("on",p===w));document.getElementById("wh-out").innerHTML=`<h4>${n}</h4><p>${ex}</p><small>${where}</small>`;return}
+ const c=e.target.closest("#chrono");if(c){const out=document.getElementById("cdl");
+  if(!chr){chrT=Date.now();c.classList.add("run");c.textContent="Le goût a disparu";out.innerHTML="<b>0</b>Gardez le goût en bouche…";chr=setInterval(()=>{out.querySelector("b").textContent=Math.floor((Date.now()-chrT)/1000)},200)}
+  else{clearInterval(chr);chr=null;const n=Math.floor((Date.now()-chrT)/1000);c.classList.remove("run");c.textContent="Recommencer";out.innerHTML=`<b>${n}</b>${n<3?"caudalie"+(n>1?"s":"")+" : une finale courte.":n<=8?"caudalies : une belle longueur.":"caudalies : un grand vin !"}`}}
+});
+document.getElementById("main").addEventListener("keydown",e=>{const w=e.target.closest("[data-ar]");if(w&&(e.key==="Enter"||e.key===" ")){e.preventDefault();w.dispatchEvent(new MouseEvent("click",{bubbles:true}))}});
+document.getElementById("main").addEventListener("scroll",e=>{const c=e.target;if(c.id!=="dg-car")return;const k=Math.round(c.scrollLeft/(c.firstElementChild.offsetWidth+12));document.querySelectorAll("#dg-dots i").forEach((d,j)=>d.classList.toggle("on",j===k))},true);
 
 // photo du plat
 (function(){const ph=document.getElementById("ph"),im=document.getElementById("ph-img");let last=null;
