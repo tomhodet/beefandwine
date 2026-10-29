@@ -270,7 +270,141 @@ html[data-theme="vert"]{--ardoise:#12221B;--ardoise-2:#1A2E25;--ardoise-3:#26413
 .sw-r{transform-origin:60px 60px;animation:rot 2.4s linear infinite}
 .wsp{stroke-dasharray:60;animation:wisp 2.8s ease-out infinite}
 .wsp.d2{animation-delay:.9s}.wsp.d3{animation-delay:1.8s}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}}
+
+/* ---------- DEGUSTATION v2 : motion design ---------- */
+.dg-st{transform-origin:center;will-change:transform}
+.dg-art{height:200px;position:relative;overflow:hidden}
+.dg-art::before{content:"";position:absolute;inset:-25%;background:radial-gradient(38% 42% at 50% 56%,rgba(188,152,79,.24),transparent 70%)}
+.dg-st.act .dg-art::before{animation:dgglow 6s ease-in-out infinite}
+@keyframes dgglow{50%{transform:scale(1.1);opacity:.7}}
+.dg-art svg{position:relative;height:182px;width:auto;overflow:visible}
+.drw{stroke-dasharray:1;stroke-dashoffset:0}
+.dg-st.act .drw{animation:drw 1.2s cubic-bezier(.6,0,.2,1) both}
+@keyframes drw{from{stroke-dashoffset:1}}
+.dg-st.act .wfill{animation:fillup 1.3s .5s cubic-bezier(.2,.7,.2,1) both}
+@keyframes fillup{from{transform:translateY(46px)}}
+.robe text{font:500 6px var(--util);letter-spacing:.12em;fill:#6E5B48}
+.dg-st.act .robe>g{animation:dgfade .5s both}.dg-st.act .robe>g:nth-child(2){animation-delay:.15s}.dg-st.act .robe>g:nth-child(3){animation-delay:.3s}
+@keyframes dgfade{from{opacity:0;transform:translateY(4px)}}
+.tilt,.tilt .lvl{transform-origin:60px 112px}
+.dg-st.act .tilt{animation:tilt 6s 1.8s ease-in-out infinite}
+.dg-st.act .tilt .lvl{animation:untilt 6s 1.8s ease-in-out infinite}
+@keyframes tilt{0%,100%{transform:rotate(0)}18%,44%{transform:rotate(-34deg)}60%{transform:rotate(0)}}
+@keyframes untilt{0%,100%{transform:rotate(0)}18%,44%{transform:rotate(34deg)}60%{transform:rotate(0)}}
+.tear{opacity:0}
+.dg-st.act .tear{animation:tear 6s 1.8s ease-in infinite}
+.dg-st.act .tear.t2{animation-delay:2.3s}.dg-st.act .tear.t3{animation-delay:2.8s}
+@keyframes tear{0%,61%{opacity:0;transform:translateY(0)}65%{opacity:.95}96%{opacity:0;transform:translateY(20px)}100%{opacity:0}}
+.eye{transform-origin:12px 8px}
+.dg-st.act .eye{animation:blink 4s 1.4s infinite}
+@keyframes blink{0%,46%,54%,100%{transform:scaleY(1)}50%{transform:scaleY(.1)}}
+.pt,.wd{opacity:0}
+.dg-st.act .pt{animation:rise var(--t,3.2s) var(--d,0s) ease-out infinite}
+.dg-st.act .wd{animation:rise 4.4s var(--d,0s) ease-out infinite}
+@keyframes rise{0%{opacity:0;transform:translate(0,0)}18%{opacity:.95}100%{opacity:0;transform:translate(var(--x,0px),-52px)}}
+.wd{font:italic 500 10.5px var(--display);fill:#F1E3BC}
+.orbit .lvl{transform-origin:60px 58px}
+.dg-st.act .orbit{animation:orbit 2.2s 1.7s linear infinite}
+.dg-st.act .orbit .lvl{animation:slosh 2.2s 1.7s ease-in-out infinite}
+@keyframes orbit{0%,100%{transform:translate(-5px,0)}25%{transform:translate(0,-2.5px)}50%{transform:translate(5px,0)}75%{transform:translate(0,2.5px)}}
+@keyframes slosh{0%,100%{transform:rotate(-12deg)}50%{transform:rotate(12deg)}}
+.swl{stroke-dasharray:3 5}
+.dg-st.act .swl{animation:march .9s linear infinite}
+@keyframes march{to{stroke-dashoffset:-16}}
+.pc-ax{font:500 6.5px var(--util);letter-spacing:.2em;fill:rgba(241,232,214,.45)}
+.pc-l{stroke-dasharray:1;stroke-dashoffset:0}
+.dg-st.act .pc-l{animation:drw 2.2s .2s cubic-bezier(.5,0,.3,1) both}
+.dg-st.act .pc-a{animation:dgfade0 1s 1.8s both}
+@keyframes dgfade0{from{opacity:0}}
+.pc-t text{font:500 7px var(--util);letter-spacing:.14em;text-transform:uppercase;fill:#DCC48F}
+.pc-t .pc-n{font:italic 500 9px var(--display);letter-spacing:0;text-transform:none;fill:#F1E8D6}
+.dg-st.act .pc-t{animation:dgfade .6s var(--d) both}
+.pc-p{transform-box:fill-box;transform-origin:center;opacity:0}
+.dg-st.act .pc-p{animation:ping 2.4s calc(var(--d) + .4s) ease-out infinite}
+@keyframes ping{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(3.2)}}
+.cd{fill:rgba(241,232,214,.14)}
+.dg-st.act .cd{animation:cdl 7s var(--d) infinite}
+@keyframes cdl{0%{fill:rgba(241,232,214,.14)}4%,78%{fill:#DCC48F}88%,100%{fill:rgba(241,232,214,.14)}}
+.hand{transform-origin:85px 94px}
+.dg-st.act .hand{animation:hand 7s linear infinite}
+@keyframes hand{0%{transform:rotate(0)}64%{transform:rotate(300deg)}80%{transform:rotate(300deg)}100%{transform:rotate(360deg)}}
+
+/* ---------- JEU DES AROMES ---------- */
+.ag{margin-top:28px;border-radius:18px;background:linear-gradient(170deg,rgba(122,21,38,.3),var(--ardoise-2) 55%);border:1px solid rgba(188,152,79,.28);padding:18px 16px}
+.ag h3{font:500 25px/1.12 var(--display);margin:6px 0 0;color:var(--creme)}
+.ag-r{font-size:12.5px;line-height:1.5;color:var(--creme-2);margin-top:6px}
+.ag-steps{display:flex;gap:8px;margin-top:16px}
+.ag-steps span{flex:1;display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--creme-2);padding-bottom:8px;border-bottom:2px solid rgba(241,232,214,.12);white-space:nowrap}
+.ag-steps i{font-style:normal;width:18px;height:18px;flex:none;border-radius:50%;display:grid;place-items:center;font-size:10px;border:1px solid rgba(241,232,214,.25)}
+.ag-steps .on{color:var(--creme);border-color:var(--or)}.ag-steps .on i{background:var(--or);color:var(--ardoise);border-color:var(--or)}
+.ag-steps .ok{color:var(--or-clair);border-color:rgba(188,152,79,.5)}.ag-steps .ok i{border-color:var(--or);color:var(--or-clair)}
+.ag-p{font:italic 18px/1.35 var(--display);color:var(--creme);margin:16px 0 0}
+.ag-col{display:flex;gap:6px;margin-top:12px}
+.ag-col button{flex:1;padding:9px 0;border-radius:20px;border:1px solid rgba(188,152,79,.4);font-size:12.5px;color:var(--creme)}
+.ag-col button[aria-selected="true"]{background:var(--or-clair);color:var(--ardoise);border-color:var(--or-clair)}
+.ag-list{margin-top:10px;max-height:320px;overflow-y:auto;border-radius:12px;background:rgba(var(--deep),.35);padding:2px 12px 8px}
+.ag-list .sub{margin:14px 0 0}
+.ag-cat{font:italic 500 17px var(--display);color:var(--or-clair);margin:18px 0 -4px}
+.ag-w{display:block;width:100%;text-align:left;padding:10px 0;border-bottom:1px solid rgba(241,232,214,.07)}
+.ag-w b{display:block;font:600 16.5px/1.2 var(--display);color:var(--creme)}
+.ag-w span{font-size:11.5px;color:var(--creme-2)}
+.ag-wine{margin-top:16px;display:flex;align-items:center;gap:12px;padding:12px;border-radius:14px;background:rgba(var(--deep),.4)}
+.ag-wine svg{width:24px;height:38px;flex:none;color:var(--or)}
+.ag-wine b{display:block;font:600 18px/1.15 var(--display);color:var(--creme)}
+.ag-wine span{font-size:11.5px;color:var(--creme-2)}
+.ag-pl{margin-left:auto;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--or-clair);white-space:nowrap;align-self:flex-start}
+.ag-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;perspective:600px}
+.ag-c{display:inline-flex;align-items:center;gap:7px;padding:9px 13px;border-radius:22px;border:1px solid rgba(241,232,214,.22);font-size:13.5px;color:var(--creme);transition:background .2s,border-color .2s,transform .15s}
+.ag-c i{width:9px;height:9px;border-radius:50%;flex:none}
+button.ag-c:active{transform:scale(.95)}
+.ag-c.on{background:rgba(188,152,79,.22);border-color:var(--or)}
+.ag-c.on::after{content:"✓";color:var(--or-clair);font-size:12px}
+.ag-go{display:block;width:100%;margin-top:16px;padding:13px;border-radius:12px;background:var(--or);color:var(--ardoise);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:500}
+.ag-go[disabled]{opacity:.35}
+.ag-ln{display:block;margin:12px auto 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--creme-2);text-decoration:underline;text-underline-offset:3px}
+.ag-v{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center;margin-top:16px}
+.ag-ring{width:96px;height:96px}
+.ag-ring .tr{fill:none;stroke:rgba(241,232,214,.12);stroke-width:7}
+.ag-ring .pg{fill:none;stroke:url(#agr);stroke-width:7;stroke-linecap:round;stroke-dasharray:1;transform:rotate(-90deg);transform-origin:50px 50px;animation:ringin 1.4s .2s cubic-bezier(.3,.7,.2,1) both}
+@keyframes ringin{from{stroke-dashoffset:1}}
+.ag-ring text{font:600 25px var(--display);fill:var(--creme)}
+.ag-ring .sm{font:500 8.5px var(--util);letter-spacing:.18em;fill:var(--creme-2)}
+.ag-rank{font:500 25px/1.1 var(--display);color:var(--or-clair);animation:dgfade .6s .5s both}
+.ag-msg{font-size:13px;line-height:1.45;color:var(--creme);margin-top:5px;animation:dgfade .6s .7s both}
+.ag-sub{font-size:11.5px;color:var(--creme-2);margin-top:5px;animation:dgfade .6s .8s both}
+.ag-c.f{background:var(--or);color:var(--ardoise);border-color:var(--or)}
+.ag-c.f::after{content:"✓";color:var(--ardoise);font-size:12px}
+.ag-c.m{border:1px dashed var(--or);color:var(--or-clair)}
+.ag-c.m::after{content:"à chercher";font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--or)}
+.ag-c.x{opacity:.55;text-decoration:line-through;text-decoration-color:rgba(241,232,214,.6)}
+.ag-c.x::after{content:"✕";color:var(--creme-2);font-size:11px}
+.ag-c.n{opacity:.28}
+.ag-c.rv{animation:agflip .6s var(--d) cubic-bezier(.2,.7,.2,1) both}
+.ag-c.n.rv{animation-name:agflipn}
+@keyframes agflip{from{opacity:0;transform:rotateX(85deg) translateY(6px)}}
+@keyframes agflipn{from{opacity:0}}
+.ag-leg{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;font-size:11px;color:var(--creme-2)}
+.ag-leg span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.ag-leg .l1::before{background:var(--or)}.ag-leg .l2::before{border:1px dashed var(--or)}.ag-leg .l3::before{border:1px solid rgba(241,232,214,.45)}
+.ag-note{font:italic 14px/1.45 var(--display);color:var(--creme-2);margin-top:14px;padding-top:12px;border-top:1px solid rgba(241,232,214,.1)}
+.ag-sb{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.ag-sb span{font-size:11.5px;padding:6px 10px;border-radius:14px;background:rgba(var(--deep),.45);color:var(--creme-2)}
+.ag-sb b{color:var(--or-clair);font-weight:500;margin-left:5px}
+.ag-two{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+.ag-two button{padding:12px 6px;border-radius:12px;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.ag-two .a{background:var(--or);color:var(--ardoise);font-weight:500}.ag-two .b{border:1px solid rgba(188,152,79,.5);color:var(--or-clair)}
+
+/* ---------- VOTRE AVIS ---------- */
+.av{margin-top:18px;text-align:center;border-radius:18px;padding:24px 18px;background:radial-gradient(120% 90% at 50% 0%,rgba(188,152,79,.16),transparent 60%),var(--ardoise-2);border:1px solid rgba(188,152,79,.28)}
+.av svg{width:64px;height:54px;color:var(--or)}
+.av .dt{transform-box:fill-box;transform-origin:center}
+.av.act .dt{animation:typing 1.4s var(--d) ease-in-out infinite}
+@keyframes typing{0%,60%,100%{transform:translateY(0);opacity:.45}30%{transform:translateY(-3px);opacity:1}}
+.av h3{font:500 25px/1.15 var(--display);margin:10px 0 0;color:var(--creme)}
+.av p{font-size:13.5px;line-height:1.55;color:var(--creme);margin:8px auto 0;max-width:330px}
+.av-b{display:inline-block;margin-top:16px;padding:13px 22px;border-radius:26px;background:var(--or);color:var(--ardoise);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;font-weight:500}
+.av small{display:block;margin-top:12px;font:italic 14px var(--display);color:var(--creme-2)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
 
 <script>try{var t=localStorage.getItem("bw-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}try{if(sessionStorage.getItem("bw-intro")==="1")document.documentElement.classList.add("seen")}catch(e){}</script>
@@ -382,7 +516,8 @@ const MENU=[
   ["Apéritifs",[{n:"Coupe de champagne",p:"8,90"},{n:"Gin tonic",d:"Gin d'Azur",p:"9,90"},{n:"Whisky coca",p:"7,90"},{n:"Martini gin",p:"5,90"},{n:"Martini rouge",p:"4,90"},{n:"Martini blanc",p:"4,90"},{n:"Campari",p:"4,50"},{n:"Anisette",p:"4,50"}]],
   ["Bières",[{n:"Bud",d:"25 cl",p:"3,90"},{n:"Bud",d:"50 cl",p:"7,50"},{n:"Leffe",d:"33 cl",p:"4,50"}]]]},
  {id:"cave",t:"La cave",note:"Bouteille, sauf mention",cave:true,items:[]},
- {id:"degustation",t:"Déguster",h:"L'art de déguster",note:"Le rituel du sommelier",deg:true,items:[]}
+ {id:"degustation",t:"Déguster",h:"L'art de déguster",note:"Le rituel du sommelier",deg:true,items:[]},
+ {id:"avis",t:"Votre avis",h:"Votre avis",note:"Sur Google",avis:true,items:[]}
 ];
 let uid=0;MENU.forEach(s=>{s.items.forEach(i=>i.id=i.id||"i"+uid++);(s.sub||[]).forEach(([,l])=>l.forEach(i=>i.id="i"+uid++))});
 const ALL={};MENU.forEach(s=>{s.items.forEach(i=>ALL[i.id]=i);(s.sub||[]).forEach(([,l])=>l.forEach(i=>ALL[i.id]=i))});
@@ -419,22 +554,96 @@ const DG=[
  ["nez2","Le second nez","Faites tourner, puis sentez","Posez le pied du verre sur la table, faites tourner le vin quelques secondes, puis plongez le nez.","L'air réveille le vin. De nouveaux arômes apparaissent : épices, bois, cuir, sous-bois. Comparez avec le premier nez."],
  ["bouche","La bouche","Goûtez en deux temps","Prenez une petite gorgée, gardez-la quelques secondes et aspirez un filet d'air entre les lèvres.","D'abord la douceur ou la vivacité, puis la texture : le vin est-il léger ou ample ? Les tanins assèchent-ils la bouche ?"],
  ["finale","La finale","Comptez les secondes","Après avoir avalé, comptez combien de temps le goût reste en bouche.","Chaque seconde s'appelle une caudalie. Moins de 3 : finale courte. De 5 à 8 : belle longueur. Au-delà : un grand vin."]];
-const ART={"oeil": "<svg viewBox=\"-10 0 160 150\" aria-hidden=\"true\"><rect x=\"-10\" y=\"118\" width=\"160\" height=\"22\" rx=\"3\" fill=\"#F1E8D6\" opacity=\".9\"/>\n  <defs><clipPath id=\"dgbowl\"><path transform=\"rotate(-28 60 80)\" d=\"M38 16 C35 48 40 76 60 84 C80 76 85 48 82 16 Z\"/></clipPath></defs><rect x=\"0\" y=\"58\" width=\"140\" height=\"70\" fill=\"var(--vin-2)\" clip-path=\"url(#dgbowl)\"/><g transform=\"rotate(-28 60 80)\"><path d=\"M38 16 C35 48 40 76 60 84 C80 76 85 48 82 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\"/><path d=\"M60 84 V126 M42 130 Q60 123 78 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\"/></g>\n  <g transform=\"translate(112 22)\" stroke=\"currentColor\" stroke-width=\"2\" fill=\"none\"><path d=\"M0 12 Q14 0 28 12 Q14 24 0 12Z\"/><circle cx=\"14\" cy=\"12\" r=\"4.5\" fill=\"currentColor\"/></g>\n  <path d=\"M104 44 L86 62\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-dasharray=\"3 4\"/></svg>", "nez1": "<svg viewBox=\"0 0 120 150\" aria-hidden=\"true\"><path d=\"M37.6 50 C38.5 68 45 80 60 84 C75 80 81.5 68 82.4 50 Z\" fill=\"var(--vin-2)\"/><ellipse cx=\"60\" cy=\"50\" rx=\"22.4\" ry=\"3.2\" fill=\"#C4344B\"/><path d=\"M38 16 C35 48 40 76 60 84 C80 76 85 48 82 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\"/><path d=\"M60 84 V126 M42 130 Q60 123 78 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\"/>\n  <path class=\"wsp\" d=\"M54 46 C50 34 58 26 54 12\" stroke=\"#DCC48F\" stroke-width=\"1.6\" fill=\"none\" stroke-linecap=\"round\"/>\n  <path class=\"wsp d2\" d=\"M64 46 C68 34 60 26 66 10\" stroke=\"#DCC48F\" stroke-width=\"1.6\" fill=\"none\" stroke-linecap=\"round\"/></svg>", "nez2": "<svg viewBox=\"0 0 120 150\" aria-hidden=\"true\"><g class=\"sw-w\"><path d=\"M37.6 50 C38.5 68 45 80 60 84 C75 80 81.5 68 82.4 50 Z\" fill=\"var(--vin-2)\"/><ellipse cx=\"60\" cy=\"50\" rx=\"22.4\" ry=\"3.2\" fill=\"#C4344B\"/></g><path d=\"M38 16 C35 48 40 76 60 84 C80 76 85 48 82 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\"/><path d=\"M60 84 V126 M42 130 Q60 123 78 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\"/>\n  <g class=\"sw-r\"><path d=\"M28 60 A34 34 0 0 1 92 52\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-dasharray=\"2 5\" transform=\"translate(0 -4)\"/></g>\n  <path class=\"wsp\" d=\"M50 46 C44 32 56 24 48 6\" stroke=\"#DCC48F\" stroke-width=\"1.8\" fill=\"none\" stroke-linecap=\"round\"/>\n  <path class=\"wsp d2\" d=\"M60 46 C64 30 54 22 60 4\" stroke=\"#DCC48F\" stroke-width=\"1.8\" fill=\"none\" stroke-linecap=\"round\"/>\n  <path class=\"wsp d3\" d=\"M70 46 C76 32 64 24 72 6\" stroke=\"#DCC48F\" stroke-width=\"1.8\" fill=\"none\" stroke-linecap=\"round\"/></svg>", "bouche": "<svg viewBox=\"0 0 150 150\" aria-hidden=\"true\"><g transform=\"translate(-6 0)\"><path d=\"M37.6 50 C38.5 68 45 80 60 84 C75 80 81.5 68 82.4 50 Z\" fill=\"var(--vin-2)\"/><ellipse cx=\"60\" cy=\"50\" rx=\"22.4\" ry=\"3.2\" fill=\"#C4344B\"/><path d=\"M38 16 C35 48 40 76 60 84 C80 76 85 48 82 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\"/><path d=\"M60 84 V126 M42 130 Q60 123 78 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\"/></g>\n  <g transform=\"translate(104 58)\" style=\"animation:sip 2.2s ease-in-out infinite\"><path d=\"M-22 6 Q0 -10 22 6 Q0 22 -22 6Z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M-22 6 Q0 10 22 6\" stroke=\"currentColor\" stroke-width=\"1.6\" fill=\"none\"/></g>\n  <path class=\"wsp\" d=\"M84 62 C90 58 94 66 100 62\" stroke=\"#DCC48F\" stroke-width=\"1.6\" fill=\"none\"/>\n  <path class=\"wsp d2\" d=\"M84 70 C90 66 94 74 100 70\" stroke=\"#DCC48F\" stroke-width=\"1.6\" fill=\"none\"/></svg>", "finale": "<svg viewBox=\"0 0 120 150\" aria-hidden=\"true\"><circle cx=\"60\" cy=\"78\" r=\"44\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\"/><path d=\"M52 26 H68 M60 26 V34\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\"/>\n  <g class=\"sw-r\" style=\"transform-origin:60px 78px\"><path d=\"M60 78 V44\" stroke=\"#C4344B\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><circle cx=\"60\" cy=\"78\" r=\"4\" fill=\"currentColor\"/>\n  <text x=\"60\" y=\"108\" text-anchor=\"middle\" font-family=\"Jost,sans-serif\" font-size=\"9\" letter-spacing=\"2\" fill=\"#DCC48F\">CAUDALIES</text></svg>"};
-const AR=[["Fruits rouges","#B23A48","Fraise, framboise, cerise, groseille.","À chercher dans le Vosne-Romanée ou les rosés de Provence."],
- ["Fruits noirs","#5E1A30","Cassis, mûre, myrtille, prune.","Typique des Saint-Julien et Saint-Émilion de la carte."],
- ["Épices","#9A4A26","Poivre, réglisse, clou de girofle.","Dans les rouges du Rhône et du Languedoc : Châteauneuf-du-Pape, Pic Saint-Loup."],
- ["Boisé","#8A6A3A","Vanille, pain grillé, cèdre, café.","La marque d'un élevage en fût de chêne, comme dans les grands Bordeaux."],
- ["Fleurs","#8E6496","Violette, rose, pivoine.","Souvent dans les rouges jeunes du Rhône et de Bourgogne."],
- ["Sous-bois","#5A4636","Champignon, tabac, cuir, truffe.","Ils arrivent avec l'âge : cherchez-les dans la collection."]];
-function wheelSVG(){const c=100,R=94,r=40,P=a=>[c+Math.cos(a)*R,c+Math.sin(a)*R],Q=a=>[c+Math.cos(a)*r,c+Math.sin(a)*r];
- return `<svg viewBox="0 0 200 200" role="group" aria-label="Roue des arômes">${AR.map(([n,col],k)=>{const a0=(-90+60*k)*Math.PI/180,a1=a0+Math.PI/3,[x0,y0]=P(a0),[x1,y1]=P(a1),[u1,v1]=Q(a1),[u0,v0]=Q(a0),m=(a0+a1)/2,tx=c+Math.cos(m)*67,ty=c+Math.sin(m)*67;
-  const w=n.split(" ");return `<path data-ar="${k}" role="button" tabindex="0" aria-label="${n}" fill="${col}" d="M${x0} ${y0} A${R} ${R} 0 0 1 ${x1} ${y1} L${u1} ${v1} A${r} ${r} 0 0 0 ${u0} ${v0}Z"/><text x="${tx}" y="${ty-(w.length-1)*4.5+2.5}" text-anchor="middle">${w.map((x,j)=>`<tspan x="${tx}" dy="${j?9:0}">${x}</tspan>`).join("")}</text>`}).join("")}
- <circle cx="100" cy="100" r="36" fill="var(--ardoise)"/><text x="100" y="98" text-anchor="middle" style="font:italic 500 12px var(--display);fill:var(--or-clair);text-transform:none;letter-spacing:0">Touchez</text><text x="100" y="111" text-anchor="middle" style="font:italic 500 12px var(--display);fill:var(--or-clair);text-transform:none;letter-spacing:0">une famille</text></svg>`}
+// ---------- dégustation : illustrations animées ----------
+function glassDefs(k){return `<defs>
+<linearGradient id="${k}w" gradientUnits="userSpaceOnUse" x1="0" y1="44" x2="0" y2="94"><stop offset="0" stop-color="#B8283F"/><stop offset=".55" stop-color="#7A1526"/><stop offset="1" stop-color="#3E0812"/></linearGradient>
+<linearGradient id="${k}s" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E06A7D"/><stop offset=".5" stop-color="#B22D44"/><stop offset="1" stop-color="#7E1729"/></linearGradient>
+<linearGradient id="${k}g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".3"/><stop offset=".16" stop-color="#fff" stop-opacity=".06"/><stop offset=".7" stop-color="#fff" stop-opacity="0"/><stop offset=".9" stop-color="#fff" stop-opacity=".12"/><stop offset="1" stop-color="#fff" stop-opacity=".32"/></linearGradient>
+<linearGradient id="${k}e" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F1E8D6"/><stop offset="1" stop-color="#BC984F"/></linearGradient>
+<radialGradient id="${k}h"><stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+<clipPath id="${k}c"><path d="M37 15 C34 52 40 83 60 91 C80 83 86 52 83 15 Z"/></clipPath></defs>`}
+function glass(k,lv,inner){return `<ellipse cx="60" cy="146" rx="30" ry="5.5" fill="url(#${k}h)"/>
+ <g clip-path="url(#${k}c)"><g class="wfill"><g class="lvl"><rect x="-50" y="${lv}" width="220" height="170" fill="url(#${k}w)"/><ellipse cx="60" cy="${lv}" rx="40" ry="3.6" fill="url(#${k}s)"/><ellipse cx="51" cy="${lv-.6}" rx="7" ry="1" fill="#fff" opacity=".35"/></g></g>${inner||""}</g>
+ <path d="M36 14 C33 52 39 84 60 92 C81 84 87 52 84 14 Z" fill="url(#${k}g)"/>
+ <path class="drw" pathLength="1" d="M36 14 C33 52 39 84 60 92 C81 84 87 52 84 14" fill="none" stroke="url(#${k}e)" stroke-width="1.5"/>
+ <ellipse cx="60" cy="14" rx="24" ry="3" fill="none" stroke="#F1E8D6" stroke-opacity=".7" stroke-width="1"/>
+ <path d="M41.5 24 C39.5 48 42 70 51 82" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2" stroke-linecap="round"/>
+ <path d="M79 26 C80.5 44 79.5 60 76 70" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1.2" stroke-linecap="round"/>
+ <path class="drw" pathLength="1" d="M60 92 L60 139" stroke="url(#${k}e)" stroke-width="2.2" stroke-linecap="round"/>
+ <path d="M60.8 95 L60.8 137" stroke="#fff" stroke-opacity=".35" stroke-width=".7"/>
+ <path class="drw" pathLength="1" d="M40 141 A20 3.6 0 1 0 80 141 A20 3.6 0 1 0 40 141" fill="rgba(241,232,214,.08)" stroke="url(#${k}e)" stroke-width="1.4"/>`}
+function particles(n,fast,words){let h="";for(let j=0;j<n;j++){const x=47+((j*37)%27),dx=((j*53)%21)-10,d=(1.5+j*(fast?.22:.4)).toFixed(2),t=((fast?2.3:3.4)+((j*17)%10)/10).toFixed(1),r=(1.1+((j*29)%10)/10).toFixed(1);
+  h+=`<circle class="pt" cx="${x}" cy="54" r="${r}" fill="#EAD9AC" style="--x:${dx}px;--d:${d}s;--t:${t}s"/>`}
+ (words||[]).forEach(([w,dx,d])=>h+=`<text class="wd" x="${60+dx}" y="46" text-anchor="middle" style="--x:${dx>0?9:-9}px;--d:${d}s">${w}</text>`);return h}
+const ART2={
+ oeil:k=>`<svg viewBox="0 0 170 182" aria-hidden="true">${glassDefs(k)}
+  <rect x="10" y="134" width="150" height="44" rx="4" fill="#F4EDE0"/><path d="M10 147 H160" stroke="#E4D8C2" stroke-width=".6"/>
+  <g class="robe" text-anchor="middle"><g><circle cx="52" cy="158" r="5.5" fill="#8C1235"/><text x="52" y="172">JEUNE</text></g><g><circle cx="85" cy="158" r="5.5" fill="#741B2A"/><text x="85" y="172">MÛR</text></g><g><circle cx="118" cy="158" r="5.5" fill="#9C4A2E"/><text x="118" y="172">ÉVOLUÉ</text></g><path d="M61 158 H76 M94 158 H109" stroke="#BFAF95" stroke-width=".8"/></g>
+  <g transform="translate(25 -5)"><g class="tilt">${glass(k,50,`<g fill="#B32A42"><ellipse class="tear" cx="43" cy="31" rx="1.1" ry="2.1"/><ellipse class="tear t2" cx="46.5" cy="27" rx="1" ry="1.9"/><ellipse class="tear t3" cx="76.5" cy="29" rx="1" ry="1.9"/></g>`)}</g></g>
+  <g transform="translate(130 14)"><g class="eye"><path d="M0 8 Q12 -2 24 8 Q12 18 0 8Z" fill="none" stroke="#DCC48F" stroke-width="1.4"/><circle cx="12" cy="8" r="3.6" fill="#DCC48F"/></g></g>
+  <path d="M133 31 L113 47" stroke="#DCC48F" stroke-width="1" stroke-dasharray="2 3" opacity=".7"/></svg>`,
+ nez1:k=>`<svg viewBox="0 0 170 182" aria-hidden="true">${glassDefs(k)}<g transform="translate(25 10)">${glass(k,56)}${particles(7,0,[["fruits",-12,2],["fleurs",10,3.6]])}</g></svg>`,
+ nez2:k=>`<svg viewBox="0 0 170 182" aria-hidden="true">${glassDefs(k)}<g transform="translate(25 6)">
+  <path class="swl" d="M22 141 A38 9 0 1 0 98 141" fill="none" stroke="#DCC48F" stroke-width="1.3" opacity=".85"/><path d="M93.5 137.5 L98 141 L92.5 143.5" fill="none" stroke="#DCC48F" stroke-width="1.3" stroke-linecap="round"/>
+  <g class="orbit">${glass(k,56)}</g>${particles(11,1,[["épices",-15,2.2],["bois",13,3.1],["cuir",-3,4]])}</g></svg>`,
+ bouche:k=>`<svg viewBox="0 0 204 172" aria-hidden="true"><defs><linearGradient id="${k}a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B8283F" stop-opacity=".6"/><stop offset="1" stop-color="#B8283F" stop-opacity="0"/></linearGradient><linearGradient id="${k}l" x1="0" x2="1"><stop offset="0" stop-color="#F1E8D6"/><stop offset="1" stop-color="#BC984F"/></linearGradient></defs>
+  <text class="pc-ax" x="12" y="20">INTENSITÉ</text><path d="M14 26 V136 H194" fill="none" stroke="rgba(241,232,214,.25)" stroke-width="1"/><text class="pc-ax" x="194" y="166" text-anchor="end">TEMPS →</text>
+  <path class="pc-a" d="M14 134 C24 134 26 56 46 54 C66 52 72 70 98 70 C126 70 134 80 152 96 C168 112 180 124 192 128 L192 136 L14 136 Z" fill="url(#${k}a)"/>
+  <path class="pc-l" pathLength="1" d="M14 134 C24 134 26 56 46 54 C66 52 72 70 98 70 C126 70 134 80 152 96 C168 112 180 124 192 128" fill="none" stroke="url(#${k}l)" stroke-width="2.4" stroke-linecap="round"/>
+  ${[[46,"Attaque",1,"douceur, vivacité",54],[100,"Milieu",1.5,"texture, tanins",70],[166,"Finale",2,"le goût qui reste",108]].map(([x,t,d,n,y])=>`<g class="pc-t" style="--d:${d}s"><path d="M${x} 136 V${y}" stroke="rgba(220,196,143,.5)" stroke-dasharray="1.5 2.5"/><circle cx="${x}" cy="${y}" r="3" fill="#DCC48F"/><circle class="pc-p" cx="${x}" cy="${y}" r="3" fill="none" stroke="#DCC48F"/><text x="${x}" y="152" text-anchor="middle">${t}</text><text class="pc-n" x="${x+(x>150?6:0)}" y="${y-(x>150?14:9)}" text-anchor="middle">${n}</text></g>`).join("")}</svg>`,
+ finale:k=>{let d="";for(let i=1;i<=10;i++){const a=(-90+i*30)*Math.PI/180;d+=`<circle class="cd" style="--d:${(i*.45).toFixed(2)}s" cx="${(85+Math.cos(a)*50).toFixed(1)}" cy="${(94+Math.sin(a)*50).toFixed(1)}" r="4.2"/>`}
+  return `<svg viewBox="0 0 170 182" aria-hidden="true">${glassDefs(k)}<path d="M77 22 H93 M85 22 V31" stroke="#DCC48F" stroke-width="3" stroke-linecap="round"/><circle cx="85" cy="94" r="62" style="fill:rgba(var(--deep),.45)" stroke="url(#${k}e)" stroke-width="2"/><circle cx="85" cy="94" r="50" fill="none" stroke="rgba(241,232,214,.08)" stroke-width="10"/>${d}<g class="hand"><path d="M85 94 V54" stroke="#C4344B" stroke-width="2.6" stroke-linecap="round"/></g><circle cx="85" cy="94" r="4.5" fill="#DCC48F"/><text class="pc-ax" x="85" y="176" text-anchor="middle">1 SECONDE = 1 CAUDALIE</text></svg>`}};
+function dgUpdate(c){if(!c||!c.children.length)return;const cr=c.getBoundingClientRect(),mid=cr.left+cr.width/2;let best=null,bd=9;
+ [...c.children].forEach(el=>{const r=el.getBoundingClientRect(),o=Math.max(-1,Math.min(1,(r.left+r.width/2-mid)/r.width));el.style.transform=`perspective(900px) rotateY(${(-o*18).toFixed(2)}deg) scale(${(1-Math.abs(o)*.08).toFixed(3)})`;el.style.opacity=(1-Math.abs(o)*.4).toFixed(2);if(Math.abs(o)<bd){bd=Math.abs(o);best=el}});
+ const vis=c.dataset.vis==="1";[...c.children].forEach(el=>{const on=vis&&el===best;if(on!==el.classList.contains("act"))el.classList.toggle("act",on)});
+ const k=[...c.children].indexOf(best);document.querySelectorAll("#dg-dots i").forEach((d,j)=>d.classList.toggle("on",j===k))}
+function dgInit(){if(!("IntersectionObserver" in window))return;if(window._dgio)window._dgio.disconnect();const c=document.getElementById("dg-car");
+ const io=new IntersectionObserver(es=>es.forEach(en=>{const t=en.target;if(t.id==="dg-car"){t.dataset.vis=en.isIntersecting?"1":"0";dgUpdate(t)}else t.classList.toggle("act",en.isIntersecting)}),{threshold:.35});
+ if(c){io.observe(c);requestAnimationFrame(()=>dgUpdate(c))}document.querySelectorAll("[data-act]").forEach(el=>io.observe(el));window._dgio=io}
+
+// ---------- jeu des arômes ----------
+const AROMA={fraise:["Fraise","fr"],framboise:["Framboise","fr"],cerise:["Cerise","fr"],groseille:["Groseille","fr"],cassis:["Cassis","fn"],mure:["Mûre","fn"],prune:["Prune","fn"],myrtille:["Myrtille","fn"],citron:["Citron","ag"],pamplemousse:["Pamplemousse","ag"],pomme:["Pomme","fb"],poire:["Poire","fb"],peche:["Pêche","fb"],abricot:["Abricot","fb"],raisin:["Raisin frais","fb"],ananas:["Ananas","ex"],violette:["Violette","fl"],rose:["Rose","fl"],fleurs:["Fleurs blanches","fl"],poivre:["Poivre","ep"],reglisse:["Réglisse","ep"],epices:["Épices douces","ep"],garrigue:["Garrigue","ga"],olive:["Olive noire","ga"],vanille:["Vanille","bo"],grille:["Pain grillé","bo"],cedre:["Cèdre","bo"],cacao:["Cacao","bo"],fume:["Fumé","bo"],sousbois:["Sous-bois","sb"],truffe:["Truffe","sb"],cuir:["Cuir","sb"],tabac:["Tabac","sb"],miel:["Miel","go"],beurre:["Beurre","go"],noisette:["Noisette","go"],brioche:["Brioche","go"],amande:["Amande","go"],pierre:["Pierre à fusil","mi"]};
+const FAM={fr:"#C0394E",fn:"#6A1F38",ag:"#D8B848",fb:"#D2A56A",ex:"#E08A3C",fl:"#9A6FA6",ep:"#A4532B",ga:"#7C8A52",bo:"#9A7642",sb:"#6B5442",go:"#C4923F",mi:"#9AA0A6"};
+const PROF={medoc:["cassis","cedre","reglisse","tabac","vanille"],stemilion:["prune","cerise","mure","vanille","cacao"],bdxvieux:["truffe","cuir","sousbois","tabac","prune"],rhone:["cerise","framboise","poivre","garrigue","reglisse"],cdp:["cerise","garrigue","poivre","reglisse","cuir"],languedoc:["mure","garrigue","poivre","olive","reglisse"],paysdoc:["mure","cassis","poivre","violette","reglisse"],pinot:["cerise","framboise","rose","sousbois","epices"],bourgvieux:["sousbois","truffe","cuir","cerise","epices"],hermvieux:["cuir","poivre","olive","fume","violette"],chitry:["pomme","citron","fleurs","pierre"],maconnais:["peche","citron","fleurs","noisette"],cotebeaune:["beurre","noisette","brioche","grille","peche"],rhoneblanc:["fleurs","peche","abricot","amande"],muscat:["raisin","rose","abricot","miel"],bergeron:["abricot","miel","fleurs","amande"],chardsoleil:["ananas","peche","citron","fleurs"],rose:["peche","pamplemousse","fraise","groseille"],grigio:["poire","pomme","citron","fleurs"]};
+const WPROF={"Amiral de Beychevelle 2017":"medoc","Lacarde Montarlier 2021":"stemilion","Connétable de Talbot 2017":"medoc","Château Lagrange 2018":"medoc","Clos de la Cure 2020":"stemilion","La Manarine 2021":"rhone","Beaumes-de-Venise 2022":"rhone","Domaine des Bernardins 2022":"rhone","Châteauneuf-du-Pape 2020":"cdp","Côte de Bœuf":"paysdoc","Saint-Christol":"languedoc","Le Salut de la Terre":"languedoc","Pic Saint-Loup":"languedoc","Château l'Hospitalet 2021":"languedoc","Vosne-Romanée 2018, Les Chaumes":"pinot","Château Pavie 1988":"bdxvieux","Château Angélus 2014":"stemilion","Château Cheval Blanc 1997":"bdxvieux","Château Cheval Blanc 1975":"bdxvieux","Château Angélus 2000":"bdxvieux","Château Mouton Rothschild 2005":"medoc","Château La Fleur-Pétrus 2000":"bdxvieux","Pétrus 1974":"bdxvieux","Château Ducru-Beaucaillou 1996":"bdxvieux","Château Haut-Brion 1987":"bdxvieux","Château Haut-Brion 1975":"bdxvieux","Hermitage 1994":"hermvieux","Chambertin Grand Cru 1998":"bourgvieux","Chitry 2022":"chitry","Saint-Véran 2021":"maconnais","Chassagne-Montrachet 1er Cru":"cotebeaune","La Manarine 2022":"rhoneblanc","Muscat de Beaumes-de-Venise 2022":"muscat","Chignin-Bergeron":"bergeron","El Bar Chardonnay":"chardsoleil","Rapitalà Grand Cru":"chardsoleil","Minuty Prestige":"rose","Minuty Or":"rose","Minuty 281":"rose","Pinot Grigio":"grigio"};
+const POOL={r:["fraise","framboise","cerise","groseille","cassis","mure","prune","myrtille","violette","rose","poivre","reglisse","epices","garrigue","olive","vanille","cedre","cacao","fume","sousbois","truffe","cuir","tabac"],b:["citron","pamplemousse","pomme","poire","peche","abricot","ananas","raisin","fleurs","rose","miel","beurre","noisette","brioche","amande","pierre","grille","vanille"],o:["fraise","framboise","groseille","cerise","peche","pamplemousse","citron","poire","pomme","abricot","ananas","fleurs","rose"]};
+const WCOL={},WAPP={};WINES.forEach(([cat,regs])=>{const c=cat.includes("blancs")?"b":cat.includes("rosés")?"o":"r";regs.forEach(([reg,ws])=>ws.forEach(w=>{if(WPROF[w[0]]&&!WCOL[w[0]]){WCOL[w[0]]=c;WAPP[w[0]]=w[1]}}))});
+function rng(s){let h=1779033703^s.length;for(let i=0;i<s.length;i++){h=Math.imul(h^s.charCodeAt(i),3432918353);h=h<<13|h>>>19}return()=>{h=Math.imul(h^h>>>16,2246822507);h=Math.imul(h^h>>>13,3266489909);return((h^=h>>>16)>>>0)/4294967296}}
+function shuf(a,R){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(R()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function agChips(w){const p=PROF[WPROF[w]],R=rng(w),dec=shuf(POOL[WCOL[w]].filter(x=>!p.includes(x)),R).slice(0,10-p.length);return shuf(p.concat(dec),R)}
+let AG={st:1,col:"r",w:null,sel:[],pl:[]};
+function agScore(){const p=PROF[WPROF[AG.w]],f=AG.sel.filter(a=>p.includes(a)).length,x=AG.sel.length-f;return {n:AG.pl.length+1,s:f,m:p.length,f,x,r:Math.max(0,f-x*.5)/p.length}}
+function agList(){let h="";WINES.forEach(([cat,regs])=>{const c=cat.includes("blancs")?"b":cat.includes("rosés")?"o":"r";if(c!==AG.col)return;if(cat.startsWith("La collection"))h+=`<div class="ag-cat">La collection · grands crus</div>`;
+ regs.forEach(([reg,ws])=>{const ok=ws.filter(x=>WPROF[x[0]]&&WCOL[x[0]]===c);if(!ok.length)return;h+=`<div class="sub">${reg}</div>`+ok.map(x=>`<button type="button" class="ag-w" data-ag="w" data-v="${esc(x[0])}"><b>${esc(x[0])}</b><span>${esc(x[1])}</span></button>`).join("")})});return h}
+const MINIG=`<svg viewBox="0 0 26 40" aria-hidden="true"><path d="M5.6 11 C6.5 17 9 20 13 21 C17 20 19.5 17 20.4 11 Z" fill="#9E2236"/><path d="M5 2 C4 12 6 19 13 21 C20 19 22 12 21 2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M13 21 V35 M8 37 Q13 35 18 37" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>`;
+function agInner(){const S=["Votre vin","Vos arômes","Verdict"];let h=`<div class="ag-steps">${S.map((t,j)=>`<span class="${AG.st===j+1?"on":AG.st>j+1?"ok":""}"><i>${AG.st>j+1?"✓":j+1}</i>${t}</span>`).join("")}</div>`;
+ if(AG.st===1)return h+`<p class="ag-p">Quel vin avez-vous dans le verre ?</p><div class="ag-col" role="tablist">${[["r","Rouges"],["b","Blancs"],["o","Rosés"]].map(([c,t])=>`<button type="button" role="tab" data-ag="col" data-v="${c}" aria-selected="${AG.col===c}">${t}</button>`).join("")}</div><div class="ag-list">${agList()}</div>`;
+ const w=AG.w,p=PROF[WPROF[w]],ch=agChips(w),pn=AG.pl.length+1;
+ const head=`<div class="ag-wine">${MINIG}<div><b>${esc(w)}</b><span>${esc(WAPP[w]||"")}</span></div><span class="ag-pl">Joueur ${pn}</span></div>`;
+ const sb=AG.pl.length?`<div class="ag-sb">${AG.pl.map(x=>`<span>Joueur ${x.n}<b>${x.s}/${x.m}</b></span>`).join("")}</div>`:"";
+ if(AG.st===2)return h+head+`<p class="ag-p">Sentez, goûtez, puis touchez jusqu'à ${p.length+1} arômes que vous reconnaissez.</p><div class="ag-chips">${ch.map(a=>`<button type="button" class="ag-c ${AG.sel.includes(a)?"on":""}" data-ag="a" data-v="${a}" aria-pressed="${AG.sel.includes(a)}"><i style="background:${FAM[AROMA[a][1]]}"></i>${AROMA[a][0]}</button>`).join("")}</div><button type="button" class="ag-go" id="ag-go" data-ag="rev" ${AG.sel.length?"":"disabled"}>${AG.sel.length?`Révéler la réponse (${AG.sel.length})`:"Touchez au moins un arôme"}</button>${sb}<button type="button" class="ag-ln" data-ag="chg">Changer de vin</button>`;
+ const sc=agScore(),r=sc.r,[rk,msg]=r>=1?["Nez de sommelier","Tout trouvé, sans une fausse piste. Chapeau !"]:r>=.75?["Nez affûté","Il ne vous manque presque rien. Encore une gorgée ?"]:r>=.5?["Bon nez","Les grandes lignes sont là. Faites tourner le verre et cherchez les arômes en pointillés."]:r>=.25?["Bon début","Sentez à nouveau après avoir fait tourner le vin : les arômes en pointillés vont apparaître."]:["Nez curieux","Ça s'entraîne ! Relisez les cinq gestes, puis retentez votre chance."];
+ return h+head+`<div class="ag-v"><svg class="ag-ring" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="agr"><stop offset="0" stop-color="#9E2236"/><stop offset="1" stop-color="#DCC48F"/></linearGradient></defs><circle class="tr" cx="50" cy="50" r="42"/><circle class="pg" cx="50" cy="50" r="42" pathLength="1" style="stroke-dashoffset:${(1-sc.s/sc.m).toFixed(3)}"/><text x="50" y="55" text-anchor="middle">${sc.s}/${sc.m}</text><text class="sm" x="50" y="70" text-anchor="middle">SCORE</text></svg>
+  <div><div class="ag-rank">${rk}</div><div class="ag-msg">${msg}</div><div class="ag-sub">${sc.f} trouvé${sc.f>1?"s":""} sur ${sc.m}${sc.x?` · ${sc.x} fausse${sc.x>1?"s":""} piste${sc.x>1?"s":""}`:""}</div></div></div>
+  <div class="ag-chips">${ch.map((a,j)=>{const s=AG.sel.includes(a),t=p.includes(a),c=s&&t?"f":t?"m":s?"x":"n";return `<span class="ag-c rv ${c}" style="--d:${(.2+j*.07).toFixed(2)}s"><i style="background:${FAM[AROMA[a][1]]}"></i>${AROMA[a][0]}</span>`}).join("")}</div>
+  <div class="ag-leg"><span class="l1">Trouvé</span><span class="l2">À chercher</span><span class="l3">Fausse piste</span></div>
+  <div class="ag-note">La réponse correspond au profil type de ce vin, selon son cépage et son terroir. Chaque bouteille a sa personnalité : si vous sentez autre chose, votre nez a peut-être raison.</div>${sb}
+  <div class="ag-two"><button type="button" class="a" data-ag="next">Joueur suivant</button><button type="button" class="b" data-ag="chg">Autre vin</button></div>`}
+function agAct(el){const a=el.dataset.ag,v=el.dataset.v;
+ if(a==="a"){const i=AG.sel.indexOf(v),cap=PROF[WPROF[AG.w]].length+1;if(i<0&&AG.sel.length>=cap){toast(`${cap} arômes au maximum : retirez-en un pour en choisir un autre.`);return}i<0?AG.sel.push(v):AG.sel.splice(i,1);el.classList.toggle("on",i<0);el.setAttribute("aria-pressed",i<0);const b=document.getElementById("ag-go");if(b){b.disabled=!AG.sel.length;b.textContent=AG.sel.length?`Révéler la réponse (${AG.sel.length})`:"Touchez au moins un arôme"}return}
+ if(a==="col")AG.col=v;else if(a==="w"){AG.w=v;AG.sel=[];AG.pl=[];AG.st=2}else if(a==="rev")AG.st=3;else if(a==="next"){AG.pl.push(agScore());AG.sel=[];AG.st=2}else if(a==="chg"){AG={st:1,col:AG.col,w:null,sel:[],pl:[]}}
+ const box=document.getElementById("ag");box.innerHTML=agInner();if(a!=="col"){const t=box.getBoundingClientRect().top;if(t<90||t>innerHeight*.5)scrollTo({top:t+scrollY-120,behavior:"smooth"})}}
 function degHTML(){return `<div class="dg-i">Cinq gestes, deux minutes. Pas besoin d'être sommelier : faites-le à table, entre amis.</div>
- <div class="dg-car" id="dg-car">${DG.map(([k,n,t,how,look],j)=>`<article class="dg-st"><div class="dg-art">${ART[k]}</div><div class="dg-tx"><div class="dg-n">Étape ${j+1} sur 5 · ${n}</div><h3>${t}</h3><div class="dg-how">${how}</div><div class="dg-look"><b>Ce que vous cherchez</b>${look}</div>${k==="finale"?`<button type="button" class="chrono" id="chrono">Lancer le chrono</button><div class="cdl" id="cdl"></div>`:""}</div></article>`).join("")}</div>
+ <div class="dg-car" id="dg-car">${DG.map(([k,n,t,how,look],j)=>`<article class="dg-st"><div class="dg-art">${ART2[k]("dg"+j)}</div><div class="dg-tx"><div class="dg-n">Étape ${j+1} sur 5 · ${n}</div><h3>${t}</h3><div class="dg-how">${how}</div><div class="dg-look"><b>Ce que vous cherchez</b>${look}</div>${k==="finale"?`<button type="button" class="chrono" id="chrono">Lancer le chrono</button><div class="cdl" id="cdl"></div>`:""}</div></article>`).join("")}</div>
  <div class="dg-dots" id="dg-dots">${DG.map((_,j)=>`<i class="${j?"":"on"}"></i>`).join("")}</div>
- <div class="wheel"><span class="eyebrow">Le jeu des arômes</span><h3>Qu'est-ce que vous sentez ?</h3>${wheelSVG()}<div class="wh-out" id="wh-out"><p>Six familles pour mettre des mots sur ce que vous sentez.</p></div>
- <div class="game"><span>Entre amis</span>Chacun annonce un arôme à son tour, sans répéter les autres. Le dernier à trouver choisit la prochaine bouteille.</div></div>`}
+ <div class="ag"><span class="eyebrow">Le jeu des arômes</span><h3>Saurez-vous reconnaître votre vin ?</h3><div class="ag-r">Choisissez votre bouteille, touchez les arômes que vous sentez, puis comparez avec le profil type du vin. Passez le téléphone : chacun joue à son tour.</div><div id="ag">${agInner()}</div></div>`}
+
+// ---------- votre avis ----------
+const GREV="https://search.google.com/local/writereview?placeid=ChIJixuZKxsv4EcR_pbQuk3dGVc";
+function avisHTML(){return `<div class="av" data-act><svg viewBox="0 0 64 54" aria-hidden="true"><path d="M8 6 H56 a4 4 0 0 1 4 4 V34 a4 4 0 0 1 -4 4 H26 L14 48 V38 H8 a4 4 0 0 1 -4 -4 V10 a4 4 0 0 1 4 -4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>${[22,32,42].map((x,j)=>`<circle class="dt" cx="${x}" cy="22" r="3" fill="currentColor" style="--d:${(j*.18).toFixed(2)}s"/>`).join("")}</svg>
+ <h3>Votre expérience nous intéresse</h3><p>Racontez votre repas sur Google, en deux minutes. Chaque avis aide la maison à progresser, et d'autres gourmands à nous trouver.</p>
+ <a class="av-b" href="${GREV}" target="_blank" rel="noopener">Écrire un avis sur Google</a><small>Merci de votre visite.</small></div>`}
+
 function caveHTML(){
   let h=pfHTML();
   WINES.forEach(([cat,regs])=>{h+=`<div class="wcat">${cat}</div>`;if(cat.startsWith("La collection"))h+=`<div class="note-s"><span>La note du sommelier</span>Des millésimes rares, gardés pour les grandes occasions. Demandez conseil avant de choisir : certains de ces vins gagnent à être carafés.</div>`;regs.forEach(([reg,ws])=>{h+=`<div class="sub">${reg}</div><div class="rows">`+ws.map(w=>`<div class="row wine"><div class="tx"><div class="nm">${esc(w[0])}</div><div class="ds">${esc(w[1])}${w[3]?` · <em>${esc(w[3])}</em>`:""}</div></div><div class="pr">${w[2]} €</div></div>`).join("")+`</div>`})});
@@ -447,13 +656,14 @@ function render(){
     if(s.band)h+=`<div class="band"><img src="${A[s.band[0]]}" alt="" loading="lazy"><span>${s.band[1]}</span></div>`;
     if(s.cave){h+=caveHTML()}
     else if(s.deg){h+=degHTML()}
+    else if(s.avis){h+=avisHTML()}
     else if(s.cuts){h+=`<div class="cuts">${s.items.map(cut).join("")}</div><div class="sub">Garniture au choix</div><div class="ds" style="font-size:13px;color:var(--creme-2);line-height:1.5">${G.join(" · ")}</div><div class="sub">Sauce au choix</div><div class="ds" style="font-size:13px;color:var(--creme-2);line-height:1.5">${S.join(" · ")}</div>`}
     else h+=`<div class="rows">${s.items.map(row).join("")}</div>`;
     (s.sub||[]).forEach(([t,l])=>h+=`<div class="sub">${t}</div><div class="rows">${l.map(row).join("")}</div>`);
     h+=`</section>`});
   document.getElementById("main").innerHTML=h;
   const ta=document.getElementById("ard");if(ta)ta.addEventListener("input",e=>{ARD=e.target.value;save()});
-  spy();
+  spy();dgInit();
 }
 document.getElementById("cats").innerHTML=MENU.map((s,k)=>`<a href="#${s.id}" class="${k?"":"on"}" data-c="${s.id}">${s.t}</a>`).join("");
 document.getElementById("cats").addEventListener("click",e=>{const a=e.target.closest("a");if(!a)return;e.preventDefault();document.getElementById(a.dataset.c).scrollIntoView({behavior:"smooth"})});
@@ -501,13 +711,13 @@ render();
 let chr=null,chrT=0;
 document.getElementById("main").addEventListener("click",e=>{
  const t=e.target.closest("[data-pf]");if(t){pfSel=t.dataset.pf;document.querySelectorAll("[data-pf]").forEach(b=>b.setAttribute("aria-selected",b.dataset.pf===pfSel));document.getElementById("pf-card").outerHTML=`<div class="pf-card" id="pf-card">${pairCard(ALL[pfSel])}</div>`;return}
- const w=e.target.closest("[data-ar]");if(w){const k=+w.dataset.ar,[n,,ex,where]=AR[k];const svg=w.closest("svg");svg.classList.add("sel");svg.querySelectorAll("path").forEach(p=>p.classList.toggle("on",p===w));document.getElementById("wh-out").innerHTML=`<h4>${n}</h4><p>${ex}</p><small>${where}</small>`;return}
+ const g=e.target.closest("[data-ag]");if(g){agAct(g);return}
  const c=e.target.closest("#chrono");if(c){const out=document.getElementById("cdl");
   if(!chr){chrT=Date.now();c.classList.add("run");c.textContent="Le goût a disparu";out.innerHTML="<b>0</b>Gardez le goût en bouche…";chr=setInterval(()=>{out.querySelector("b").textContent=Math.floor((Date.now()-chrT)/1000)},200)}
   else{clearInterval(chr);chr=null;const n=Math.floor((Date.now()-chrT)/1000);c.classList.remove("run");c.textContent="Recommencer";out.innerHTML=`<b>${n}</b>${n<3?"caudalie"+(n>1?"s":"")+" : une finale courte.":n<=8?"caudalies : une belle longueur.":"caudalies : un grand vin !"}`}}
 });
-document.getElementById("main").addEventListener("keydown",e=>{const w=e.target.closest("[data-ar]");if(w&&(e.key==="Enter"||e.key===" ")){e.preventDefault();w.dispatchEvent(new MouseEvent("click",{bubbles:true}))}});
-document.getElementById("main").addEventListener("scroll",e=>{const c=e.target;if(c.id!=="dg-car")return;const k=Math.round(c.scrollLeft/(c.firstElementChild.offsetWidth+12));document.querySelectorAll("#dg-dots i").forEach((d,j)=>d.classList.toggle("on",j===k))},true);
+let dgRaf=0;document.getElementById("main").addEventListener("scroll",e=>{if(e.target.id!=="dg-car")return;cancelAnimationFrame(dgRaf);dgRaf=requestAnimationFrame(()=>dgUpdate(e.target))},true);
+window.addEventListener("resize",()=>dgUpdate(document.getElementById("dg-car")));
 
 // photo du plat
 (function(){const ph=document.getElementById("ph"),im=document.getElementById("ph-img");let last=null;
