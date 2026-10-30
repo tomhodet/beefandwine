@@ -1,0 +1,11 @@
+# Beef and Wine : tous les robots sont autorisés, y compris la recherche ChatGPT
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://tomhodet.github.io/beefandwine/site/sitemap.xml
