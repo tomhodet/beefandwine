@@ -264,8 +264,11 @@
   /* ---------------- la cave : étiquettes en coverflow */
   const lab = $('.labels');
   if (lab) {
+    const dot = $('.tl-track i');
     const cover = () => {
       const r = lab.getBoundingClientRect(), c = r.left + r.width / 2;
+      const mx = lab.scrollWidth - lab.clientWidth;
+      if (dot) dot.style.left = (mx > 0 ? clamp(lab.scrollLeft / mx, 0, 1) * 100 : 0).toFixed(2) + '%';
       for (const el of lab.children) {
         const b = el.getBoundingClientRect();
         const d = (b.left + b.width / 2 - c) / Math.max(320, r.width * .55);
@@ -277,9 +280,7 @@
     let lt = false;
     lab.addEventListener('scroll', () => { if (!lt) { lt = true; requestAnimationFrame(() => { lt = false; cover(); }); } }, { passive: true });
     addEventListener('resize', cover);
-    const mid = lab.children[Math.floor(lab.children.length / 2)];
-    const center = () => { if (mid) lab.scrollLeft = mid.offsetLeft - (lab.clientWidth - mid.clientWidth) / 2; cover(); };
-    center(); addEventListener('load', center);
+    lab.scrollLeft = 0; cover(); addEventListener('load', cover);
     // glisser à la souris
     let down = false, sx = 0, sl = 0, moved = false;
     lab.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = true; moved = false; sx = e.clientX; sl = lab.scrollLeft; });
